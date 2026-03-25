@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+@plugin "@tailwindcss/vite";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: #FAFAF6;
+  --foreground: #0B1F3A;
+  --primary: #0B1F3A;
+  --accent: #C1A35F;
+  --sage: #6E7F65;
+  --secondary: #E5E5E5;
+  --white: #ffffff;
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-accent: var(--accent);
+  --color-sage: var(--sage);
+  --color-secondary: var(--secondary);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--background);
+  color: var(--foreground);
+  margin: 0;
+}
+
+.calendly-inline-widget {
+  min-width: 320px;
+  height: 700px;
+}
