@@ -73,8 +73,10 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="relative z-20 w-[280px] sm:w-[340px] lg:w-[420px] xl:w-[480px]"
               style={{
-                maskImage: 'radial-gradient(ellipse 75% 85% at 50% 35%, black 50%, transparent 100%)',
-                WebkitMaskImage: 'radial-gradient(ellipse 75% 85% at 50% 35%, black 50%, transparent 100%)',
+                maskImage: 'linear-gradient(to bottom, black 70%, transparent 100%), linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)',
+                WebkitMaskImage: 'linear-gradient(to bottom, black 70%, transparent 100%), linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)',
+                maskComposite: 'intersect',
+                WebkitMaskComposite: 'source-in',
               }}
             >
               <img
