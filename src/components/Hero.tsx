@@ -80,9 +80,9 @@ export default function Hero() {
               />
               {/* Black overlay matching image bg, fading outward to page color */}
               <div
-                className="absolute inset-[-2rem] pointer-events-none"
+                className="absolute inset-[-3rem] pointer-events-none"
                 style={{
-                  background: 'radial-gradient(ellipse 40% 38% at 50% 45%, transparent 60%, black 75%, black 80%, var(--background) 95%)',
+                  background: 'radial-gradient(ellipse 45% 48% at 50% 45%, transparent 70%, black 85%, var(--background) 100%)',
                 }}
               />
             </motion.div>
