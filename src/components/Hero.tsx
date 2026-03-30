@@ -78,11 +78,11 @@ export default function Hero() {
                 alt="Sohaib Awan - Founder of AWAN Buyers Agency"
                 className="w-full h-auto object-cover rounded-[3rem]"
               />
-              {/* Overlay: page bg color fading inward over the black edges */}
+              {/* Black overlay matching image bg, fading outward to page color */}
               <div
-                className="absolute inset-0 rounded-[3rem] pointer-events-none"
+                className="absolute inset-[-2rem] pointer-events-none"
                 style={{
-                  background: 'radial-gradient(ellipse 70% 65% at 50% 45%, transparent 50%, var(--background) 85%)',
+                  background: 'radial-gradient(ellipse 40% 38% at 50% 45%, transparent 60%, black 75%, black 80%, var(--background) 95%)',
                 }}
               />
             </motion.div>
