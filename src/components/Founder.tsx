@@ -22,7 +22,7 @@ export default function Founder() {
               <img
                 src={sohaibImg}
                 alt="Sohaib - Founder of AWAN Buyers Agency"
-                className="w-full h-[500px] object-cover object-top"
+                className="w-full h-auto object-contain"
               />
             </div>
             <div className="absolute bottom-6 left-6 bg-accent text-white px-6 py-3 rounded-xl flex items-center gap-2 shadow-lg">
