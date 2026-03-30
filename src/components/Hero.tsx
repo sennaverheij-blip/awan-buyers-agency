@@ -66,15 +66,23 @@ export default function Hero() {
               </span>
             </div>
 
-            {/* Sohaib — original photo with black bg, rounded corners */}
-            <motion.img
+            {/* Sohaib — rounded corners with black bg fading out */}
+            <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              src={sohaibImg}
-              alt="Sohaib Awan - Founder of AWAN Buyers Agency"
-              className="relative z-20 w-[280px] sm:w-[340px] lg:w-[420px] xl:w-[480px] h-auto object-cover rounded-[3rem]"
-            />
+              className="relative z-20 w-[280px] sm:w-[340px] lg:w-[420px] xl:w-[480px] rounded-[3rem] overflow-hidden"
+              style={{
+                maskImage: 'radial-gradient(ellipse 85% 80% at 50% 45%, black 45%, transparent 85%)',
+                WebkitMaskImage: 'radial-gradient(ellipse 85% 80% at 50% 45%, black 45%, transparent 85%)',
+              }}
+            >
+              <img
+                src={sohaibImg}
+                alt="Sohaib Awan - Founder of AWAN Buyers Agency"
+                className="w-full h-auto object-cover"
+              />
+            </motion.div>
           </div>
         </div>
 
