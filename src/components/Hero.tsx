@@ -1,6 +1,6 @@
 import { ArrowRight, Home, Users, CheckCircle } from 'lucide-react'
 import { motion } from 'motion/react'
-const founderImg = 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=800&fit=crop&crop=top'
+import sohaibImg from '../assets/sohaib.png'
 
 const stats = [
   { icon: Home, stat: '$8M+', label: 'Personal Portfolio' },
@@ -15,22 +15,14 @@ export default function Hero() {
 
   return (
     <section className="relative pt-24 pb-12 lg:pt-32 lg:pb-20 bg-[var(--background)] overflow-hidden min-h-[90vh] lg:min-h-0">
-      {/* Background AWAN watermark */}
-      <div
-        className="absolute top-1/4 right-0 text-[12rem] sm:text-[16rem] lg:text-[20rem] font-black text-primary/[0.03] leading-none tracking-widest select-none pointer-events-none z-0"
-        aria-hidden="true"
-      >
-        AWAN
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="relative grid lg:grid-cols-2 gap-8 lg:gap-12 items-end">
           {/* Left column: text content */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            className="relative z-20"
+            className="relative z-30"
           >
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-primary leading-tight">
               Stop Overpaying<br />
@@ -62,19 +54,28 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* Right column: founder image */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative flex justify-center lg:justify-end"
-          >
-            <img
-              src={founderImg}
-              alt="Awan - Buyers Agency Founder"
-              className="w-[280px] sm:w-[340px] lg:w-[420px] xl:w-[480px] h-auto object-contain object-bottom drop-shadow-2xl"
+          {/* Right column: AWAN watermark + Sohaib layered */}
+          <div className="relative flex justify-center lg:justify-end">
+            {/* AWAN watermark — sits behind Sohaib */}
+            <div
+              className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none select-none"
+              aria-hidden="true"
+            >
+              <span className="text-[10rem] sm:text-[12rem] lg:text-[14rem] font-black text-primary/[0.06] leading-none tracking-wider">
+                AWAN
+              </span>
+            </div>
+
+            {/* Sohaib — sits in front of watermark */}
+            <motion.img
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              src={sohaibImg}
+              alt="Sohaib Awan - Founder of AWAN Buyers Agency"
+              className="relative z-20 w-[280px] sm:w-[340px] lg:w-[420px] xl:w-[480px] h-auto object-contain object-bottom drop-shadow-2xl"
             />
-          </motion.div>
+          </div>
         </div>
 
         {/* Stats row */}
@@ -82,7 +83,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="mt-8 lg:mt-12 grid grid-cols-3 gap-3 sm:gap-4 max-w-2xl mx-auto lg:mx-0"
+          className="relative z-30 mt-8 lg:mt-12 grid grid-cols-3 gap-3 sm:gap-4 max-w-2xl mx-auto lg:mx-0"
         >
           {stats.map((s, i) => (
             <motion.div
