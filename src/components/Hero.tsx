@@ -1,6 +1,6 @@
 import { ArrowRight, Home, Users, CheckCircle } from 'lucide-react'
 import { motion } from 'motion/react'
-import sohaibImg from '../assets/sohaib.png'
+import sohaibImg from '../assets/sohaib-original.png'
 
 const stats = [
   { icon: Home, stat: '$8M+', label: 'Personal Portfolio' },
@@ -66,23 +66,21 @@ export default function Hero() {
               </span>
             </div>
 
-            {/* Sohaib — sits in front of watermark, fades at edges */}
+            {/* Sohaib — original photo with black bg, faded with radial gradient */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative z-20 w-[280px] sm:w-[340px] lg:w-[420px] xl:w-[480px]"
+              className="relative z-20 w-[320px] sm:w-[380px] lg:w-[460px] xl:w-[520px] rounded-2xl overflow-hidden"
               style={{
-                maskImage: 'linear-gradient(to bottom, black 70%, transparent 100%), linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)',
-                WebkitMaskImage: 'linear-gradient(to bottom, black 70%, transparent 100%), linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)',
-                maskComposite: 'intersect',
-                WebkitMaskComposite: 'source-in',
+                maskImage: 'radial-gradient(ellipse 80% 75% at 50% 40%, black 50%, transparent 90%)',
+                WebkitMaskImage: 'radial-gradient(ellipse 80% 75% at 50% 40%, black 50%, transparent 90%)',
               }}
             >
               <img
                 src={sohaibImg}
                 alt="Sohaib Awan - Founder of AWAN Buyers Agency"
-                className="w-full h-auto object-contain object-bottom"
+                className="w-full h-auto object-cover"
               />
             </motion.div>
           </div>
