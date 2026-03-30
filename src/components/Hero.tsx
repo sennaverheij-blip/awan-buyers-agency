@@ -1,6 +1,5 @@
 import { ArrowRight, Home, Users, CheckCircle } from 'lucide-react'
 import { motion } from 'motion/react'
-import sohaibImg from '../assets/sohaib-original.png'
 
 const stats = [
   { icon: Home, stat: '$8M+', label: 'Personal Portfolio' },
@@ -54,39 +53,18 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* Right column: AWAN watermark + Sohaib layered */}
-          <div className="relative flex justify-center lg:justify-end">
-            {/* AWAN watermark — sits behind Sohaib */}
-            <div
-              className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none select-none"
-              aria-hidden="true"
-            >
-              <span className="text-[10rem] sm:text-[12rem] lg:text-[14rem] font-black text-primary/[0.06] leading-none tracking-wider">
-                AWAN
-              </span>
-            </div>
-
-            {/* Sohaib — black bg fades into page color via overlay */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative z-20 w-[280px] sm:w-[340px] lg:w-[420px] xl:w-[480px]"
-            >
-              <img
-                src={sohaibImg}
-                alt="Sohaib Awan - Founder of AWAN Buyers Agency"
-                className="w-full h-auto object-cover rounded-[3rem]"
-              />
-              {/* Black overlay matching image bg, fading outward to page color */}
-              <div
-                className="absolute inset-[-3rem] pointer-events-none"
-                style={{
-                  background: 'radial-gradient(ellipse 45% 48% at 50% 45%, transparent 70%, black 85%, var(--background) 100%)',
-                }}
-              />
-            </motion.div>
-          </div>
+          {/* Right column: AWAN watermark */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="relative flex items-center justify-center pointer-events-none select-none"
+            aria-hidden="true"
+          >
+            <span className="text-[10rem] sm:text-[12rem] lg:text-[14rem] font-black text-primary/[0.06] leading-none tracking-wider">
+              AWAN
+            </span>
+          </motion.div>
         </div>
 
         {/* Stats row */}
