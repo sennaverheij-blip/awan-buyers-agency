@@ -66,21 +66,24 @@ export default function Hero() {
               </span>
             </div>
 
-            {/* Sohaib — rounded corners with black bg fading out */}
+            {/* Sohaib — black bg fades into page color via overlay */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative z-20 w-[280px] sm:w-[340px] lg:w-[420px] xl:w-[480px] rounded-[3rem] overflow-hidden"
-              style={{
-                maskImage: 'radial-gradient(ellipse 85% 80% at 50% 45%, black 45%, transparent 85%)',
-                WebkitMaskImage: 'radial-gradient(ellipse 85% 80% at 50% 45%, black 45%, transparent 85%)',
-              }}
+              className="relative z-20 w-[280px] sm:w-[340px] lg:w-[420px] xl:w-[480px]"
             >
               <img
                 src={sohaibImg}
                 alt="Sohaib Awan - Founder of AWAN Buyers Agency"
-                className="w-full h-auto object-cover"
+                className="w-full h-auto object-cover rounded-[3rem]"
+              />
+              {/* Overlay: page bg color fading inward over the black edges */}
+              <div
+                className="absolute inset-0 rounded-[3rem] pointer-events-none"
+                style={{
+                  background: 'radial-gradient(ellipse 70% 65% at 50% 45%, transparent 50%, var(--background) 85%)',
+                }}
               />
             </motion.div>
           </div>
