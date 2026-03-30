@@ -18,18 +18,11 @@ export default function Founder() {
             transition={{ duration: 0.6 }}
             className="relative"
           >
-            <div className="relative rounded-[3rem] overflow-hidden">
+            <div className="rounded-2xl overflow-hidden shadow-2xl">
               <img
                 src={sohaibImg}
                 alt="Sohaib - Founder of AWAN Buyers Agency"
                 className="w-full h-[500px] object-cover object-top"
-              />
-              {/* Black bg fading into section bg */}
-              <div
-                className="absolute inset-[-3rem] pointer-events-none"
-                style={{
-                  background: 'radial-gradient(ellipse 45% 48% at 50% 45%, transparent 70%, black 85%, white 100%)',
-                }}
               />
             </div>
             <div className="absolute bottom-6 left-6 bg-accent text-white px-6 py-3 rounded-xl flex items-center gap-2 shadow-lg">
