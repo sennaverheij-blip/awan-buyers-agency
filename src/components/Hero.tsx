@@ -1,5 +1,6 @@
-import { ArrowRight, Home, Users, CheckCircle, TrendingUp } from 'lucide-react'
+import { ArrowRight, Home, Users, CheckCircle } from 'lucide-react'
 import { motion } from 'motion/react'
+import founderImg from '../assets/founder.jpg'
 
 const stats = [
   { icon: Home, stat: '$8M+', label: 'Personal Portfolio' },
@@ -13,85 +14,102 @@ export default function Hero() {
   }
 
   return (
-    <section className="pt-24 pb-16 lg:pt-32 lg:pb-24 bg-[var(--background)]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+    <section className="relative pt-24 pb-12 lg:pt-32 lg:pb-20 bg-[var(--background)] overflow-hidden min-h-[90vh] lg:min-h-0">
+      {/* Background AWAN watermark */}
+      <div
+        className="absolute top-1/4 right-0 text-[12rem] sm:text-[16rem] lg:text-[20rem] font-black text-primary/[0.03] leading-none tracking-widest select-none pointer-events-none z-0"
+        aria-hidden="true"
+      >
+        AWAN
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="relative grid lg:grid-cols-2 gap-8 lg:gap-12 items-end">
+          {/* Left column: text content */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
+            className="relative z-20"
           >
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-primary leading-tight">
-              Stop Overpaying For Investment Property
+              Stop Overpaying<br />
+              For Investment<br />
+              Property
             </h1>
-            <p className="mt-4 text-2xl lg:text-3xl text-accent font-semibold">
-              Save $50K-$200K+
+            <p className="mt-5 text-xl lg:text-2xl text-accent font-semibold">
+              Save $50K–$200K+
             </p>
-            <p className="text-xl text-primary/70 mt-1">on your next purchase.</p>
-            <p className="mt-6 text-lg lg:text-xl text-primary/80">
+            <p className="text-lg text-primary/70 mt-1">on your next purchase.</p>
+            <p className="mt-5 text-base lg:text-lg text-primary/80">
               Work with an investor who has built his own{' '}
-              <span className="font-bold text-primary">$8M+ portfolio</span>.
+              <span className="font-bold text-primary">$8M+ portfolio.</span>
             </p>
 
-            <div className="mt-8 flex flex-col sm:flex-row gap-4">
+            {/* CTA Button */}
+            <div className="mt-8">
               <button
                 onClick={scrollToBooking}
-                className="bg-primary text-white px-8 py-4 rounded-xl hover:bg-accent transition-colors duration-300 flex items-center justify-center gap-2 font-semibold text-lg shadow-lg"
+                className="group relative bg-gradient-to-r from-primary to-primary/90 text-white px-8 py-4 rounded-xl hover:from-accent hover:to-accent/90 transition-all duration-300 flex items-center gap-2 font-semibold text-lg shadow-lg"
               >
-                Book Free Strategy Call <ArrowRight className="w-5 h-5" />
+                Book Free Strategy Call <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
-            </div>
-            <p className="mt-3 text-sm italic text-sage">
-              Limited investor spots each month
-            </p>
-
-            <div className="mt-10 grid grid-cols-3 gap-4">
-              {stats.map((s) => (
-                <motion.div
-                  key={s.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.3 }}
-                  className="bg-white rounded-2xl p-4 border border-primary/10 text-center"
-                >
-                  <s.icon className="w-6 h-6 text-accent mx-auto mb-2" />
-                  <p className="text-2xl font-bold text-primary">{s.stat}</p>
-                  <p className="text-sm text-primary/60">{s.label}</p>
-                </motion.div>
-              ))}
+              <div className="mt-2 bg-gradient-to-r from-primary to-primary/80 text-white/90 px-8 py-2 rounded-b-xl max-w-fit">
+                <p className="text-sm">
+                  Limited investor spots <span className="font-bold text-accent">each month</span>
+                </p>
+              </div>
             </div>
           </motion.div>
 
+          {/* Right column: founder image */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative hidden lg:block"
+            className="relative flex justify-center lg:justify-end"
           >
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-              <img
-                src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&h=700&fit=crop"
-                alt="Premium property investment"
-                className="w-full h-[500px] object-cover"
-              />
-              <div className="absolute bottom-6 left-6 bg-accent text-white px-6 py-3 rounded-xl flex items-center gap-2 shadow-lg">
-                <TrendingUp className="w-5 h-5" />
-                <span className="font-semibold">$8M+ Portfolio Built</span>
-              </div>
-            </div>
+            <img
+              src={founderImg}
+              alt="Awan - Buyers Agency Founder"
+              className="w-[280px] sm:w-[340px] lg:w-[420px] xl:w-[480px] h-auto object-contain object-bottom drop-shadow-2xl"
+            />
           </motion.div>
         </div>
 
+        {/* Stats row */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-          className="mt-16 border-t border-primary/10 pt-8"
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="mt-8 lg:mt-12 grid grid-cols-3 gap-3 sm:gap-4 max-w-2xl mx-auto lg:mx-0"
         >
-          <p className="text-center text-sm text-primary/40 mb-6 uppercase tracking-wider">As Seen In</p>
-          <div className="flex flex-wrap justify-center items-center gap-8 lg:gap-16 opacity-40">
+          {stats.map((s, i) => (
+            <motion.div
+              key={s.label}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.5 + i * 0.1 }}
+              className="bg-white rounded-2xl p-3 sm:p-4 border border-primary/10 text-center shadow-sm"
+            >
+              <s.icon className="w-5 h-5 sm:w-6 sm:h-6 text-accent mx-auto mb-1 sm:mb-2" />
+              <p className="text-xl sm:text-2xl font-bold text-primary">{s.stat}</p>
+              <p className="text-xs sm:text-sm text-primary/60">{s.label}</p>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* As Seen In */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+          className="mt-10 lg:mt-14 border-t border-primary/10 pt-6"
+        >
+          <p className="text-center text-sm text-primary/40 mb-4 uppercase tracking-wider">As Seen In</p>
+          <div className="flex flex-wrap justify-center items-center gap-6 lg:gap-12 opacity-40">
             {['The Australian', 'realestate.com.au', 'News Corp Australia', 'Courier Mail'].map((name) => (
-              <span key={name} className="text-primary font-semibold text-lg">{name}</span>
+              <span key={name} className="text-primary font-semibold text-sm sm:text-base lg:text-lg">{name}</span>
             ))}
           </div>
         </motion.div>
