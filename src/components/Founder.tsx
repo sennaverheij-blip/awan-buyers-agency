@@ -1,5 +1,6 @@
 import { ArrowRight, TrendingUp } from 'lucide-react'
 import { motion } from 'motion/react'
+import sohaibImg from '../assets/sohaib-original.png'
 
 export default function Founder() {
   const scrollToBooking = () => {
@@ -17,11 +18,18 @@ export default function Founder() {
             transition={{ duration: 0.6 }}
             className="relative"
           >
-            <div className="rounded-2xl overflow-hidden shadow-2xl">
+            <div className="relative rounded-[3rem] overflow-hidden">
               <img
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=600&fit=crop"
+                src={sohaibImg}
                 alt="Sohaib - Founder of AWAN Buyers Agency"
-                className="w-full h-[500px] object-cover"
+                className="w-full h-[500px] object-cover object-top"
+              />
+              {/* Black bg fading into section bg */}
+              <div
+                className="absolute inset-[-3rem] pointer-events-none"
+                style={{
+                  background: 'radial-gradient(ellipse 45% 48% at 50% 45%, transparent 70%, black 85%, white 100%)',
+                }}
               />
             </div>
             <div className="absolute bottom-6 left-6 bg-accent text-white px-6 py-3 rounded-xl flex items-center gap-2 shadow-lg">
