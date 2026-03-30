@@ -1,6 +1,6 @@
 import { ArrowRight, Home, Users, CheckCircle } from 'lucide-react'
 import { motion } from 'motion/react'
-import founderImg from '../assets/founder.jpg'
+const founderImg = 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=800&fit=crop&crop=top'
 
 const stats = [
   { icon: Home, stat: '$8M+', label: 'Personal Portfolio' },
