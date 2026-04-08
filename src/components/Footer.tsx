@@ -8,16 +8,16 @@ export default function Footer() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           <div>
             <div className="text-2xl font-bold mb-2">
-              AW<span className="text-accent">A</span>N
+              A<span className="text-accent">W</span>AN
             </div>
             <p className="text-sm text-white/50 mb-1">Buyers Agency</p>
             <p className="text-accent italic mb-4">"Make it happen"</p>
             <div className="space-y-3 text-sm text-white/70">
-              <a href="tel:0421112940" className="flex items-center gap-2 hover:text-accent transition-colors">
-                <Phone className="w-4 h-4" /> 0421 112 940
+              <a href="tel:+61421112940" className="flex items-center gap-2 hover:text-accent transition-colors">
+                <Phone className="w-4 h-4" /> +61 421 112 940
               </a>
-              <a href="mailto:contact@awanbuyersagency.com.au" className="flex items-center gap-2 hover:text-accent transition-colors">
-                <Mail className="w-4 h-4" /> contact@awanbuyersagency.com.au
+              <a href="mailto:sohaib@awanbuyersagency.com.au" className="flex items-center gap-2 hover:text-accent transition-colors">
+                <Mail className="w-4 h-4" /> sohaib@awanbuyersagency.com.au
               </a>
               <div className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 mt-0.5 shrink-0" />
@@ -43,7 +43,6 @@ export default function Footer() {
               <li><Link to="/" className="hover:text-accent transition-colors">Home</Link></li>
               <li><Link to="/past-results" className="hover:text-accent transition-colors">Past Results</Link></li>
               <li><Link to="/#about" className="hover:text-accent transition-colors">About</Link></li>
-              <li><Link to="/#testimonials" className="hover:text-accent transition-colors">Testimonials</Link></li>
             </ul>
           </div>
 
@@ -61,11 +60,11 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold text-lg mb-4">Contact Us</h4>
             <div className="space-y-3 text-sm text-white/70">
-              <a href="tel:0421112940" className="flex items-center gap-2 hover:text-accent transition-colors">
-                <Phone className="w-4 h-4" /> 0421 112 940
+              <a href="tel:+61421112940" className="flex items-center gap-2 hover:text-accent transition-colors">
+                <Phone className="w-4 h-4" /> +61 421 112 940
               </a>
-              <a href="mailto:contact@awanbuyersagency.com.au" className="flex items-center gap-2 hover:text-accent transition-colors">
-                <Mail className="w-4 h-4" /> contact@awanbuyersagency.com.au
+              <a href="mailto:sohaib@awanbuyersagency.com.au" className="flex items-center gap-2 hover:text-accent transition-colors">
+                <Mail className="w-4 h-4" /> sohaib@awanbuyersagency.com.au
               </a>
               <div className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 mt-0.5 shrink-0" />

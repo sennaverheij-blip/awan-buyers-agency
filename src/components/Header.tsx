@@ -38,7 +38,7 @@ export default function Header() {
         <div className="flex items-center justify-between h-20">
           <Link to="/" className="flex items-center gap-2">
             <span className="text-2xl font-bold text-primary">
-              AW<span className="text-accent">A</span>N
+              A<span className="text-accent">W</span>AN
             </span>
             <span className="hidden sm:inline text-sm text-primary/60 border-l border-primary/20 pl-2">
               Buyers Agency

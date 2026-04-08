@@ -4,7 +4,6 @@ import WhyChooseUs from '../components/WhyChooseUs'
 import SocialProof from '../components/SocialProof'
 import Founder from '../components/Founder'
 import ProcessFlow from '../components/ProcessFlow'
-import Testimonials from '../components/Testimonials'
 import CalendlyEmbed from '../components/CalendlyEmbed'
 import Footer from '../components/Footer'
 
@@ -17,7 +16,6 @@ export default function Home() {
       <SocialProof />
       <Founder />
       <ProcessFlow />
-      <Testimonials />
       <CalendlyEmbed />
       <Footer />
     </>
