@@ -40,11 +40,11 @@ export default function CalendlyEmbed() {
             Book Your Free Consultation
           </span>
           <h2 className="text-4xl lg:text-5xl font-bold text-primary">
-            Ready To Stop Overpaying?
+            Let's Build Your Strategy
           </h2>
           <p className="mt-4 text-lg text-primary/60 max-w-3xl mx-auto">
             Schedule a free 30-minute strategy call to discuss your investment goals and discover
-            how we can save you $50K-$200K+ on your next property.
+            how we can partner with you to build a high-performing portfolio.
           </p>
         </motion.div>
 

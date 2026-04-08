@@ -1,30 +1,26 @@
-import { Eye, Target, Users, TrendingUp } from 'lucide-react'
+import { Target, Users, Search, Handshake } from 'lucide-react'
 import { motion } from 'motion/react'
 
 const features = [
   {
-    icon: Eye,
-    stat: '78%',
-    label: 'Off-Market Success',
-    description: "We know where the exclusive opportunities are — and we get you in before everyone else.",
-  },
-  {
     icon: Target,
-    stat: '100+',
-    label: 'Hours Saved',
-    description: "We do the research, the calls, and the negotiating — so you don't have to.",
+    label: 'Strategy Before Property',
+    description: "We don't start with listings. We start with your goals. Every acquisition is aligned to a clear, long-term investment strategy.",
   },
   {
     icon: Users,
-    stat: '70%',
-    label: 'Repeat Clients',
-    description: "Over 70% of our clients come back for their second or third property because we focus on service & results, not quick wins. We help you map out clear, achievable goals and build lasting wealth through smart property decisions.",
+    label: 'Proven Results & Repeat Clients',
+    description: "Our business is built on referrals and repeat investors. A reflection of consistent outcomes and trust.",
   },
   {
-    icon: TrendingUp,
-    stat: '15%+',
-    label: 'Above Market Growth',
-    description: "Our strategies are driven by data — not emotion. We target suburbs with proven growth, strong rental demand, and low vacancy rates, ensuring every property performs above market averages.",
+    icon: Search,
+    label: 'Access to the Right Opportunities',
+    description: "We source both on-market and off-market opportunities, focusing on assets with strong fundamentals — not hype.",
+  },
+  {
+    icon: Handshake,
+    label: 'End-to-End Partnership',
+    description: "From strategy through to settlement, we manage the process, coordinate key stakeholders, and guide every decision so you can move with confidence.",
   },
 ]
 
@@ -46,8 +42,8 @@ export default function WhyChooseUs() {
             We Do The Hard Work, You Reap The Rewards
           </h2>
           <p className="mt-4 text-lg text-primary/60 max-w-3xl mx-auto">
-            Stop wasting time on overpriced properties. Get exclusive access to off-market deals
-            and expert negotiation that saves you $50K-$200K+.
+            We work alongside you at every stage, from strategy to settlement, ensuring every decision
+            is considered, aligned, and built for long-term success.
           </p>
         </motion.div>
 
@@ -62,8 +58,7 @@ export default function WhyChooseUs() {
               className="bg-white rounded-2xl p-8 border border-primary/10 hover:shadow-xl hover:-translate-y-2 transition-all duration-300"
             >
               <feature.icon className="w-10 h-10 text-accent mb-4" />
-              <p className="text-4xl font-bold text-primary mb-1">{feature.stat}</p>
-              <p className="text-lg font-semibold text-primary mb-3">{feature.label}</p>
+              <p className="text-xl font-bold text-primary mb-3">{feature.label}</p>
               <p className="text-primary/60 leading-relaxed">{feature.description}</p>
             </motion.div>
           ))}

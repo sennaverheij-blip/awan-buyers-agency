@@ -15,64 +15,49 @@ export default function Hero() {
   return (
     <section className="relative pt-24 pb-12 lg:pt-32 lg:pb-20 bg-[var(--background)] overflow-hidden min-h-[90vh] lg:min-h-0">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="relative grid lg:grid-cols-2 gap-8 lg:gap-12 items-end">
-          {/* Left column: text content */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            className="relative z-30"
-          >
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-primary leading-tight">
-              Stop Overpaying<br />
-              For Investment<br />
-              Property
-            </h1>
-            <p className="mt-5 text-xl lg:text-2xl text-accent font-semibold">
-              Save $50K–$200K+
-            </p>
-            <p className="text-lg text-primary/70 mt-1">on your next purchase.</p>
-            <p className="mt-5 text-base lg:text-lg text-primary/80">
-              Work with an investor who has built his own{' '}
-              <span className="font-bold text-primary">$8M+ portfolio.</span>
-            </p>
-
-            {/* CTA Button */}
-            <div className="mt-8">
-              <button
-                onClick={scrollToBooking}
-                className="group relative bg-gradient-to-r from-primary to-primary/90 text-white px-8 py-4 rounded-xl hover:from-accent hover:to-accent/90 transition-all duration-300 flex items-center gap-2 font-semibold text-lg shadow-lg"
-              >
-                Book Free Strategy Call <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </button>
-              <div className="mt-2 bg-gradient-to-r from-primary to-primary/80 text-white/90 px-8 py-2 rounded-b-xl max-w-fit">
-                <p className="text-sm">
-                  Limited investor spots <span className="font-bold text-accent">each month</span>
-                </p>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Right column: AWAN watermark */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative flex items-center justify-center pointer-events-none select-none"
-            aria-hidden="true"
-          >
-            <span className="text-[10rem] sm:text-[12rem] lg:text-[14rem] font-black text-primary/[0.06] leading-none tracking-wider">
-              AWAN
-            </span>
-          </motion.div>
+        {/* AWAN watermark behind content */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none" aria-hidden="true">
+          <span className="text-[10rem] sm:text-[12rem] lg:text-[14rem] font-black text-primary/[0.06] leading-none tracking-wider">
+            AWAN
+          </span>
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="relative z-10 text-center max-w-3xl mx-auto"
+        >
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-primary leading-tight">
+            Your Strategic Partner<br />
+            in Property Investment
+          </h1>
+          <p className="mt-5 text-lg lg:text-xl text-primary/70 max-w-2xl mx-auto">
+            From strategy to acquisition, we partner with you to scale intelligently.
+          </p>
+
+          {/* CTA Button */}
+          <div className="mt-8 flex flex-col items-center">
+            <button
+              onClick={scrollToBooking}
+              className="group relative bg-gradient-to-r from-primary to-primary/90 text-white px-12 py-5 rounded-xl hover:from-accent hover:to-accent/90 transition-all duration-300 flex items-center gap-3 font-bold text-xl lg:text-2xl shadow-lg"
+            >
+              Book Free Strategy Call <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </button>
+            <div className="mt-2 bg-gradient-to-r from-primary to-primary/80 text-white/90 px-8 py-2 rounded-b-xl">
+              <p className="text-sm">
+                Limited investor spots <span className="font-bold text-accent">each month</span>
+              </p>
+            </div>
+          </div>
+        </motion.div>
 
         {/* Stats row */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="relative z-30 mt-8 lg:mt-12 grid grid-cols-3 gap-3 sm:gap-4 max-w-2xl mx-auto lg:mx-0"
+          className="relative z-10 mt-8 lg:mt-12 grid grid-cols-3 gap-3 sm:gap-4 max-w-2xl mx-auto"
         >
           {stats.map((s, i) => (
             <motion.div
