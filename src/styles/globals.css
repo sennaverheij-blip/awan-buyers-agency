@@ -1,37 +1,181 @@
 @import "tailwindcss";
-
-@plugin "@tailwindcss/vite";
+@import "@fontsource/cormorant-garamond/500.css";
+@import "@fontsource/cormorant-garamond/600.css";
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
 
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #FAFAF6;
-  --foreground: #0B1F3A;
-  --primary: #0B1F3A;
-  --accent: #C1A35F;
-  --sage: #6E7F65;
-  --secondary: #E5E5E5;
+  --navy-950: #0b1420;
+  --navy-900: #101e30;
+  --navy-800: #1a2c42;
+  --navy-700: #24405e;
+  --gold-500: #c2a15c;
+  --gold-400: #d4b87a;
+  --gold-600: #a88a48;
+  --cream-50: #faf7f2;
+  --cream-100: #f3eee5;
+  --ink-900: #17202b;
+  --ink-600: #4a5568;
   --white: #ffffff;
+  --success: #2f7d5b;
+  --shadow-soft: 0 8px 30px rgb(11 20 32 / 0.08);
 }
 
 @theme {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-primary: var(--primary);
-  --color-accent: var(--accent);
-  --color-sage: var(--sage);
-  --color-secondary: var(--secondary);
+  --color-navy-950: var(--navy-950);
+  --color-navy-900: var(--navy-900);
+  --color-navy-800: var(--navy-800);
+  --color-navy-700: var(--navy-700);
+  --color-gold-500: var(--gold-500);
+  --color-gold-400: var(--gold-400);
+  --color-gold-600: var(--gold-600);
+  --color-cream-50: var(--cream-50);
+  --color-cream-100: var(--cream-100);
+  --color-ink-900: var(--ink-900);
+  --color-ink-600: var(--ink-600);
+  --color-white: var(--white);
+  --color-success: var(--success);
+
+  --font-display: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+
+  --text-display: 3.5rem;
+  --text-display--line-height: 1.1;
+  --text-display--letter-spacing: -0.02em;
+  --text-h1: 3.5rem;
+  --text-h1--line-height: 1.1;
+  --text-h1--letter-spacing: -0.02em;
+  --text-h2: 2.5rem;
+  --text-h2--line-height: 1.15;
+  --text-h2--letter-spacing: -0.015em;
+  --text-h3: 1.75rem;
+  --text-h3--line-height: 1.25;
+  --text-body: 1.125rem;
+  --text-body--line-height: 1.65;
+  --text-small: 0.875rem;
+  --text-small--line-height: 1.5;
+
+  --radius-btn: 0.5rem;
+  --radius-card: 1rem;
+  --radius-media: 1.5rem;
+
+  --shadow-soft: 0 8px 30px rgb(11 20 32 / 0.08);
+
+  --max-width-content: 75rem;
+  --max-width-prose: 65ch;
+}
+
+@media (max-width: 640px) {
+  @theme {
+    --text-display: 2.25rem;
+    --text-h1: 2.25rem;
+    --text-h2: 1.75rem;
+    --text-h3: 1.375rem;
+    --text-body: 1rem;
+  }
 }
 
 html {
   scroll-behavior: smooth;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 body {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  background-color: var(--background);
-  color: var(--foreground);
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: 1.65;
+  background-color: var(--cream-50);
+  color: var(--ink-900);
   margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+.font-display {
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+:focus-visible {
+  outline: 2px solid var(--gold-500);
+  outline-offset: 3px;
+}
+
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-500);
+}
+
+.section-pad {
+  padding-block: 5rem;
+}
+
+@media (min-width: 1024px) {
+  .section-pad {
+    padding-block: 7rem;
+  }
+}
+
+.container-site {
+  width: 100%;
+  max-width: var(--max-width-content);
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container-site {
+    padding-inline: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-site {
+    padding-inline: 2rem;
+  }
+}
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 300ms ease-out,
+    transform 300ms ease-out;
+}
+
+.fade-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-up {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
 .calendly-inline-widget {

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://awanbuyersagency.com.au/sitemap.xml

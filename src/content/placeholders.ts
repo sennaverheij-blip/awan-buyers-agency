@@ -1,0 +1,53 @@
+/**
+ * PLACEHOLDER_* — do not invent real business facts.
+ * Supply real values and clear the PLACEHOLDER_ prefix in PLACEHOLDERS.md.
+ */
+
+export const PLACEHOLDER_LICENCE = 'PLACEHOLDER_LICENCE'
+export const PLACEHOLDER_ABN = 'PLACEHOLDER_ABN'
+export const PLACEHOLDER_MEMBERSHIPS = [
+  'PLACEHOLDER_MEMBERSHIP_REBAA',
+  'PLACEHOLDER_MEMBERSHIP_PIPA',
+] as const
+
+export const PLACEHOLDER_AREAS = [
+  'Parramatta',
+  'Western Sydney',
+  'Inner West',
+  'North Shore',
+  'Eastern Suburbs',
+  'Hills District',
+] as const
+
+/** Trust-bar stats — replace with verified figures before launch. */
+export const PLACEHOLDER_STATS = [
+  { value: null as number | null, suffix: 'm+', label: 'in property purchased', display: 'PLACEHOLDER_STATS_PURCHASED' },
+  { value: null as number | null, suffix: '+', label: 'homes secured', display: 'PLACEHOLDER_STATS_HOMES' },
+  { value: null as number | null, suffix: 'k', label: 'average saved off asking', display: 'PLACEHOLDER_STATS_SAVED' },
+] as const
+
+export const PLACEHOLDER_REVIEWS = {
+  rating: 'PLACEHOLDER_REVIEW_RATING',
+  count: 'PLACEHOLDER_REVIEW_COUNT',
+  url: 'PLACEHOLDER_GOOGLE_REVIEWS_URL',
+} as const
+
+export const PLACEHOLDER_LOGOS: { name: string; src: string }[] = []
+
+export const FORM_ENDPOINT = 'PLACEHOLDER_FORM_ENDPOINT'
+export const GUIDE_FORM_ENDPOINT = 'PLACEHOLDER_GUIDE_FORM_ENDPOINT'
+export const PLACEHOLDER_ASSET_PLAYBOOK = 'PLACEHOLDER_ASSET'
+
+export const ANALYTICS_ID = 'ANALYTICS_PLACEHOLDER'
+
+export const PLACEHOLDER_SOCIALS = {
+  facebook: 'PLACEHOLDER_FACEBOOK_URL',
+  instagram: 'PLACEHOLDER_INSTAGRAM_URL',
+  linkedin: 'PLACEHOLDER_LINKEDIN_URL',
+} as const
+
+export const PLACEHOLDER_HERO_IMAGE = 'PLACEHOLDER_HERO_PHOTO'
+
+/** Case-study narrative fields not in properties.ts */
+export const PLACEHOLDER_CASES_NOTE =
+  'Asking/guide vs purchase price and off-market flags need verification — current results use purchase price, valuation and growth from properties.ts only.'
