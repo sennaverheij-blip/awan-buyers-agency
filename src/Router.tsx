@@ -15,9 +15,14 @@ const GuidePage = lazy(() => import('./pages/GuidePage'))
 const PrivacyPage = lazy(() => import('./pages/PrivacyPage'))
 const TermsPage = lazy(() => import('./pages/TermsPage'))
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'))
+const PropertyInvestmentPage = lazy(() => import('./pages/PropertyInvestmentPage'))
+const MuslimInvestorsPage = lazy(() => import('./pages/MuslimInvestorsPage'))
 const GoLandingPage = lazy(() => import('./pages/funnel/GoLandingPage'))
 const GoBookPage = lazy(() => import('./pages/funnel/GoBookPage'))
 const GoQuizPage = lazy(() => import('./pages/funnel/GoQuizPage'))
+const GoMuslimLandingPage = lazy(() => import('./pages/funnel/GoMuslimLandingPage'))
+const GoMuslimBookPage = lazy(() => import('./pages/funnel/GoMuslimBookPage'))
+const GoMuslimQuizPage = lazy(() => import('./pages/funnel/GoMuslimQuizPage'))
 
 function withSuspense(Component: ComponentType) {
   return function Suspended() {
@@ -59,6 +64,9 @@ export const router = createBrowserRouter([
       { index: true, Component: withFunnelSuspense(GoLandingPage) },
       { path: 'book', Component: withFunnelSuspense(GoBookPage) },
       { path: 'quiz', Component: withFunnelSuspense(GoQuizPage) },
+      { path: 'muslim', Component: withFunnelSuspense(GoMuslimLandingPage) },
+      { path: 'muslim/book', Component: withFunnelSuspense(GoMuslimBookPage) },
+      { path: 'muslim/quiz', Component: withFunnelSuspense(GoMuslimQuizPage) },
     ],
   },
   {
@@ -74,6 +82,14 @@ export const router = createBrowserRouter([
       { path: 'faq', Component: withSuspense(FaqPage) },
       { path: 'book', Component: withSuspense(BookPage) },
       { path: 'guide', Component: withSuspense(GuidePage) },
+      {
+        path: 'property-investment-australia',
+        Component: withSuspense(PropertyInvestmentPage),
+      },
+      {
+        path: 'muslim-property-investors',
+        Component: withSuspense(MuslimInvestorsPage),
+      },
       { path: 'privacy', Component: withSuspense(PrivacyPage) },
       { path: 'terms', Component: withSuspense(TermsPage) },
       { path: '*', Component: withSuspense(NotFoundPage) },

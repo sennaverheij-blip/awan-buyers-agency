@@ -13,7 +13,8 @@ export type QuizQuestion = {
   options: QuizOption[]
 }
 
-export const QUIZ_QUALIFIED_THRESHOLD = 8
+/** With five scored questions (max ~15), require solid readiness + capital. */
+export const QUIZ_QUALIFIED_THRESHOLD = 10
 
 export const quizQuestions: QuizQuestion[] = [
   {
@@ -33,14 +34,26 @@ export const quizQuestions: QuizQuestion[] = [
       { id: 'preapproved', label: 'Pre-approved / ready to offer', score: 3 },
       { id: 'broker', label: 'Speaking with a broker / bank', score: 2 },
       { id: 'cash', label: 'Cash buyer', score: 3 },
+      { id: 'sharia', label: 'Exploring sharia-compliant finance', score: 2 },
       { id: 'not_started', label: 'Not started yet', score: 0 },
+    ],
+  },
+  {
+    id: 'capital',
+    prompt: 'Do you have capital — or the ability to raise it — for the deposit?',
+    options: [
+      { id: 'ready', label: 'Yes — deposit capital is ready', score: 3 },
+      { id: 'raise', label: 'Yes — I can raise it when needed', score: 2 },
+      { id: 'partial', label: 'Partially — still organising', score: 1 },
+      { id: 'no', label: 'Not yet', score: 0 },
     ],
   },
   {
     id: 'budget',
     prompt: 'What’s your purchase budget?',
     options: [
-      { id: 'under800', label: 'Under $800k', score: 1 },
+      { id: 'under600', label: 'Under $600k', score: 1 },
+      { id: '600_800', label: '$600k – $800k', score: 1 },
       { id: '800_12', label: '$800k – $1.2m', score: 2 },
       { id: '12_2', label: '$1.2m – $2m', score: 2 },
       { id: '2_plus', label: '$2m+', score: 3 },
@@ -62,6 +75,7 @@ export const quizQuestions: QuizQuestion[] = [
 export function scoreQuiz(answers: Record<string, string>): {
   score: number
   qualified: boolean
+  hasCapital: boolean
   answers: Record<string, string>
 } {
   let score = 0
@@ -70,9 +84,14 @@ export function scoreQuiz(answers: Record<string, string>): {
     const opt = q.options.find((o) => o.id === optionId)
     if (opt) score += opt.score
   }
+  const capital = answers.capital
+  const hasCapital = capital === 'ready' || capital === 'raise' || capital === 'partial'
+  // Must clear score threshold AND confirm some path to deposit capital
+  const qualified = score >= QUIZ_QUALIFIED_THRESHOLD && capital !== 'no' && Boolean(capital)
   return {
     score,
-    qualified: score >= QUIZ_QUALIFIED_THRESHOLD,
+    qualified,
+    hasCapital,
     answers,
   }
 }
@@ -94,7 +113,7 @@ export const funnelCopy = {
   quiz: {
     eyebrow: '60-second quiz',
     headline: 'See if a buyers agent is right for you right now',
-    lede: 'Four quick questions. We will point you to the best next step — a triage call or our free playbook.',
+    lede: 'Five quick questions. We will point you to the best next step — a triage call or our free playbook.',
   },
   qualified: {
     headline: 'You look ready — let’s talk.',
@@ -105,5 +124,25 @@ export const funnelCopy = {
     headline: 'You are early — start with the Playbook.',
     lede: 'No pressure. Get the free Property Buyer’s Playbook and book a call when the timing is right.',
     cta: 'Send me the Playbook',
+  },
+  muslim: {
+    landing: {
+      eyebrow: 'For Muslim property investors',
+      headline: 'Invest in Australian property — with sharia-aware support.',
+      lede: 'Independent buyers representation for Muslim investors across Australia. We search, evaluate and negotiate on your behalf — and work alongside trusted sharia-compliant finance partners for the funding conversation.',
+      primaryCta: 'Book a free triage call',
+      secondaryCta: 'Take the 60-second quiz',
+      trust: 'Independent · We never sell property · Trusted sharia-compliant finance partners',
+    },
+    book: {
+      eyebrow: 'Triage call',
+      headline: 'Book your free triage call',
+      lede: 'Tell us your brief and finance path — including if you need an introduction to trusted sharia-compliant finance partners. Twenty minutes. Zero obligation.',
+    },
+    quiz: {
+      eyebrow: '60-second quiz',
+      headline: 'See if now is the right time to invest',
+      lede: 'Five questions on timeline, finance, deposit capital and budget. We will recommend a triage call or our free playbook.',
+    },
   },
 } as const

@@ -6,7 +6,8 @@ import { Button } from './Button'
 import { cn } from '../../lib/utils'
 
 const budgets = [
-  'Under $800k',
+  'Under $600k',
+  '$600k – $800k',
   '$800k – $1.2m',
   '$1.2m – $2m',
   '$2m – $3m',

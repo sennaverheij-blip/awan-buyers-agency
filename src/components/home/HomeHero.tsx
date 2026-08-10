@@ -36,8 +36,8 @@ export function HomeHero() {
           {SITE.tagline}
         </h1>
         <p className="hero-copy mt-4 max-w-xl text-[0.9375rem] leading-relaxed text-white/85 sm:mt-5 sm:text-lg lg:text-xl">
-          We search, evaluate and negotiate on your behalf — including off-market homes you will
-          never see on the portals.
+          We search, evaluate and negotiate on your behalf — for homes and Australian property
+          investment — including off-market opportunities you will never see on the portals.
         </p>
         <div className="mt-7 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:items-center sm:gap-5">
           <Button

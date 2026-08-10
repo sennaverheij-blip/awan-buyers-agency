@@ -73,6 +73,22 @@ export function Footer({ legalOnly = false }: Props) {
                   Free playbook
                 </Link>
               </li>
+              <li>
+                <Link
+                  to="/property-investment-australia"
+                  className="text-small text-white/70 hover:text-white"
+                >
+                  Property investment
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/muslim-property-investors"
+                  className="text-small text-white/70 hover:text-white"
+                >
+                  Muslim investors
+                </Link>
+              </li>
             </ul>
           </div>
 
