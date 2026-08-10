@@ -35,9 +35,12 @@ export function TrustBar({ className }: Props) {
   return (
     <section className={cn('border-y border-border bg-white py-8', className)}>
       <div className="container-site">
-        <ul className="flex flex-col items-center justify-center gap-4 text-center sm:flex-row sm:gap-10 md:gap-14">
+        <ul className="flex flex-col items-stretch justify-center gap-0 text-center sm:flex-row sm:items-center sm:gap-0 md:gap-0">
           {labels.map((label) => (
-            <li key={label} className="text-small font-medium text-ink-600">
+            <li
+              key={label}
+              className="border-b border-border px-4 py-3 text-small font-medium text-ink-600 last:border-b-0 sm:border-b-0 sm:border-r sm:px-6 sm:py-0 sm:last:border-r-0 md:px-8"
+            >
               {label}
             </li>
           ))}

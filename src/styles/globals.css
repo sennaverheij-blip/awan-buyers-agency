@@ -89,50 +89,54 @@
   }
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
-@media (prefers-reduced-motion: reduce) {
+/* @layer base so Tailwind utilities (e.g. text-white) can override */
+@layer base {
   html {
-    scroll-behavior: auto;
+    scroll-behavior: smooth;
   }
 
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
-}
 
-body {
-  font-family: var(--font-sans);
-  font-size: var(--text-body);
-  line-height: 1.65;
-  background-color: var(--ground);
-  color: var(--ink-900);
-  margin: 0;
-  -webkit-font-smoothing: antialiased;
-}
+  body {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: 1.65;
+    background-color: var(--ground);
+    color: var(--ink-900);
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
 
-h1,
-h2,
-h3 {
-  font-family: var(--font-display);
-  font-weight: 700;
-  color: var(--ink-900);
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    /* no forced color — utilities control light/dark surfaces */
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--gold-500);
+    outline-offset: 3px;
+  }
 }
 
 .font-brand {
   font-family: var(--font-brand);
   font-weight: 600;
-}
-
-:focus-visible {
-  outline: 2px solid var(--gold-500);
-  outline-offset: 3px;
 }
 
 .eyebrow {
