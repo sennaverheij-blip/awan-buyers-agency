@@ -25,7 +25,7 @@ export default function FaqPage() {
   return (
     <>
       <Seo path="/faq" jsonLd={faqLd} />
-      <section className="section-pad bg-navy-950 pt-28">
+      <section className="section-pad bg-navy-950 pt-32 sm:pt-36">
         <div className="container-site max-w-3xl">
           <SectionHeading
             as="h1"

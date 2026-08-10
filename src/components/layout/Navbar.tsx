@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { createPortal } from 'react-dom'
 import { Link, useLocation } from 'react-router'
 import { Menu, Phone, X } from 'lucide-react'
 import { navLinks, SITE } from '../../content/site'
@@ -15,7 +16,12 @@ type Props = {
 export function Navbar({ minimal = false, overHero = false, onOpenChange }: Props) {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  const [mounted, setMounted] = useState(false)
   const location = useLocation()
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24)
@@ -31,13 +37,94 @@ export function Navbar({ minimal = false, overHero = false, onOpenChange }: Prop
     }
   }, [open, onOpenChange])
 
+  useEffect(() => {
+    if (!open) return
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpen(false)
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [open])
+
   const close = () => setOpen(false)
   const solid = !overHero || scrolled || open || minimal
+
+  const mobileMenu =
+    !minimal &&
+    open &&
+    mounted &&
+    createPortal(
+      <div
+        id="mobile-nav"
+        className="fixed inset-0 z-[100] flex flex-col bg-navy-950 pt-[env(safe-area-inset-top)] lg:hidden"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Menu"
+      >
+        <div className="container-site flex h-16 shrink-0 items-center justify-between sm:h-[4.25rem]">
+          <Link
+            to="/"
+            onClick={close}
+            className="flex flex-col leading-none"
+            aria-label={`${SITE.name} home`}
+          >
+            <span className="font-brand text-[1.55rem] tracking-[0.04em] text-white">
+              {SITE.shortName}
+            </span>
+            <span className="text-[0.5625rem] font-semibold uppercase tracking-[0.18em] text-white/55">
+              Buyers Agency
+            </span>
+          </Link>
+          <button
+            type="button"
+            className="flex size-11 items-center justify-center rounded-btn text-white"
+            aria-label="Close menu"
+            onClick={close}
+          >
+            <X className="size-6" />
+          </button>
+        </div>
+        <a
+          href={SITE.phone.href}
+          className="flex min-h-14 shrink-0 items-center gap-3 border-y border-white/10 px-5 text-body text-white"
+          onClick={() => track('phone_click', { location: 'nav-sheet' })}
+        >
+          <Phone className="size-5 text-gold-400" aria-hidden />
+          {SITE.phone.display}
+        </a>
+        <nav className="flex flex-1 flex-col gap-1 overflow-y-auto px-3 py-4" aria-label="Mobile">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              to={link.href}
+              onClick={close}
+              className="flex min-h-12 items-center rounded-btn px-4 text-lg font-medium text-white hover:bg-white/5"
+            >
+              {link.label}
+            </Link>
+          ))}
+        </nav>
+        <div className="shrink-0 border-t border-white/10 p-4 pb-[max(1rem,env(safe-area-inset-bottom))]">
+          <Button
+            to="/book"
+            variant="primary"
+            className="w-full"
+            onClick={() => {
+              close()
+              track('cta_book_click', { location: 'nav-sheet' })
+            }}
+          >
+            Book a Free Call
+          </Button>
+        </div>
+      </div>,
+      document.body,
+    )
 
   return (
     <header
       className={cn(
-        'fixed inset-x-0 top-0 z-50 transition-[background-color,box-shadow] duration-300',
+        'fixed inset-x-0 top-0 z-50 pt-[env(safe-area-inset-top)] transition-[background-color,box-shadow] duration-300',
         solid ? 'bg-navy-950/95 shadow-[0_1px_0_rgb(255_255_255/0.06)] backdrop-blur-md' : 'bg-transparent',
       )}
     >
@@ -110,73 +197,7 @@ export function Navbar({ minimal = false, overHero = false, onOpenChange }: Prop
           </>
         )}
       </div>
-
-      {!minimal && open && (
-        <div
-          id="mobile-nav"
-          className="fixed inset-0 z-[60] flex flex-col bg-navy-950 lg:hidden"
-          role="dialog"
-          aria-modal="true"
-          aria-label="Menu"
-        >
-          <div className="container-site flex h-16 items-center justify-between sm:h-[4.25rem]">
-            <Link
-              to="/"
-              onClick={close}
-              className="flex flex-col leading-none"
-              aria-label={`${SITE.name} home`}
-            >
-              <span className="font-brand text-[1.55rem] tracking-[0.04em] text-white">
-                {SITE.shortName}
-              </span>
-              <span className="text-[0.5625rem] font-semibold uppercase tracking-[0.18em] text-white/55">
-                Buyers Agency
-              </span>
-            </Link>
-            <button
-              type="button"
-              className="flex size-11 items-center justify-center rounded-btn text-white"
-              aria-label="Close menu"
-              onClick={close}
-            >
-              <X className="size-6" />
-            </button>
-          </div>
-          <a
-            href={SITE.phone.href}
-            className="flex min-h-14 items-center gap-3 border-y border-white/10 px-5 text-body text-white"
-            onClick={() => track('phone_click', { location: 'nav-sheet' })}
-          >
-            <Phone className="size-5 text-gold-400" aria-hidden />
-            {SITE.phone.display}
-          </a>
-          <nav className="flex flex-1 flex-col gap-1 overflow-y-auto px-3 py-4" aria-label="Mobile">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                to={link.href}
-                onClick={close}
-                className="flex min-h-12 items-center rounded-btn px-4 text-lg font-medium text-white hover:bg-white/5"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
-          <div className="border-t border-white/10 p-4 pb-[max(1rem,env(safe-area-inset-bottom))]">
-            <Button
-              to="/book"
-              variant="primary"
-              className="w-full"
-              onClick={() => {
-                close()
-                track('cta_book_click', { location: 'nav-sheet' })
-              }}
-            >
-              Book a Free Call
-            </Button>
-          </div>
-        </div>
-      )}
+      {mobileMenu}
     </header>
   )
 }

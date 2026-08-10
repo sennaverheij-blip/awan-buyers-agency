@@ -33,28 +33,28 @@ export function ResultsTeaser() {
                   <h3 className="mt-2 text-h3 font-bold text-ink-900">{p.location}</h3>
                   <p className="mt-1 text-small text-ink-600">{p.strategy}</p>
                 </div>
-                <dl className="grid grid-cols-3 gap-4 sm:col-span-7 sm:justify-items-end">
-                  <div>
+                <dl className="mt-1 grid grid-cols-1 gap-3 sm:col-span-7 sm:mt-0 sm:grid-cols-3 sm:justify-items-end sm:gap-4">
+                  <div className="flex items-baseline justify-between gap-3 border-b border-border/80 pb-2 sm:block sm:border-0 sm:pb-0">
                     <dt className="text-[0.6875rem] uppercase tracking-wider text-ink-400">
                       Purchased
                     </dt>
-                    <dd className="mt-1 font-semibold text-ink-900">
+                    <dd className="font-semibold text-ink-900 sm:mt-1">
                       {formatCurrency(p.purchasePrice)}
                     </dd>
                   </div>
-                  <div>
+                  <div className="flex items-baseline justify-between gap-3 border-b border-border/80 pb-2 sm:block sm:border-0 sm:pb-0">
                     <dt className="text-[0.6875rem] uppercase tracking-wider text-ink-400">
                       Valuation
                     </dt>
-                    <dd className="mt-1 font-semibold text-success">
+                    <dd className="font-semibold text-success sm:mt-1">
                       {formatCurrency(p.currentValuation)}
                     </dd>
                   </div>
-                  <div>
+                  <div className="flex items-baseline justify-between gap-3 sm:block">
                     <dt className="text-[0.6875rem] uppercase tracking-wider text-ink-400">
                       Growth
                     </dt>
-                    <dd className="mt-1 font-semibold text-ink-900">{p.growthPercent}%</dd>
+                    <dd className="font-semibold text-ink-900 sm:mt-1">{p.growthPercent}%</dd>
                   </div>
                 </dl>
               </article>

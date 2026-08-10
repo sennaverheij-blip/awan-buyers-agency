@@ -28,10 +28,11 @@ export function CTABand({
       <div className="container-site max-w-2xl text-center">
         <h2 className="text-h2 font-bold text-white">{title}</h2>
         <p className="mt-5 text-body text-white/60">{subtitle}</p>
-        <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <div className="mt-9 flex w-full flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center sm:gap-4">
           <Button
             to="/book"
             variant="primary"
+            className="w-full sm:w-auto"
             onClick={() => track('cta_book_click', { location })}
           >
             Book a Free Discovery Call
