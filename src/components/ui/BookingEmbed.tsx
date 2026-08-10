@@ -61,7 +61,7 @@ export function BookingEmbed({ className, autoLoad = false }: Props) {
     <div className={cn('w-full', className)}>
       {!shouldLoad && (
         <div className="flex flex-col items-center justify-center rounded-card border border-navy-800 bg-navy-900 px-6 py-16 text-center">
-          <p className="text-body text-cream-100/80">
+          <p className="text-body text-white/80">
             Load the scheduling calendar when you are ready.
           </p>
           <Button

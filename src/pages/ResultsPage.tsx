@@ -32,7 +32,7 @@ export default function ResultsPage() {
         </div>
       </section>
 
-      <section className="section-pad bg-cream-50">
+      <section className="section-pad bg-ground">
         <div className="container-site">
           <div className="flex flex-wrap items-center gap-3">
             <label htmlFor="state-filter" className="text-small font-medium text-ink-900">
@@ -40,7 +40,7 @@ export default function ResultsPage() {
             </label>
             <select
               id="state-filter"
-              className="min-h-11 rounded-btn border border-cream-100 bg-white px-3 text-base"
+              className="min-h-11 rounded-btn border border-border bg-white px-3 text-base"
               value={state}
               onChange={(e) => setState(e.target.value)}
             >

@@ -91,7 +91,7 @@ export function CallbackForm({ open, onClose }: Props) {
         role="dialog"
         aria-modal="true"
         aria-labelledby={titleId}
-        className="max-h-[90vh] w-full max-w-lg overflow-y-auto rounded-card bg-cream-50 p-6 shadow-[var(--shadow-soft)] sm:p-8"
+        className="max-h-[90vh] w-full max-w-lg overflow-y-auto rounded-card bg-ground p-6 shadow-[var(--shadow-soft)] sm:p-8"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex items-start justify-between gap-4">
@@ -105,7 +105,7 @@ export function CallbackForm({ open, onClose }: Props) {
           </div>
           <button
             type="button"
-            className="flex size-11 items-center justify-center rounded-btn text-ink-600 hover:bg-cream-100"
+            className="flex size-11 items-center justify-center rounded-btn text-ink-600 hover:bg-ground-soft"
             onClick={onClose}
             aria-label="Close"
           >
@@ -199,7 +199,7 @@ export function CallbackForm({ open, onClose }: Props) {
 }
 
 const inputClass = cn(
-  'mt-1.5 w-full rounded-btn border border-cream-100 bg-white px-3 py-3 text-base text-ink-900',
+  'mt-1.5 w-full rounded-btn border border-border bg-white px-3 py-3 text-base text-ink-900',
   'min-h-11 focus:border-gold-500',
 )
 

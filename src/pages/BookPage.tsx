@@ -13,7 +13,7 @@ export default function BookPage() {
   return (
     <>
       <Seo path="/book" />
-      <section className="bg-cream-50 px-4 pb-16 pt-28">
+      <section className="bg-ground px-4 pb-16 pt-28">
         <div className="mx-auto max-w-3xl text-center">
           <h1 className="font-display text-h1 text-ink-900">Book your free discovery call</h1>
           <ul className="mt-6 flex flex-col items-center gap-2 text-body text-ink-600 sm:flex-row sm:justify-center sm:gap-6">

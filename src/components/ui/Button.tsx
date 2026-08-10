@@ -3,15 +3,17 @@ import { Link, type LinkProps } from 'react-router'
 import { ArrowRight } from 'lucide-react'
 import { cn } from '../../lib/utils'
 
-type Variant = 'primary' | 'secondary' | 'tertiary' | 'navy'
+type Variant = 'primary' | 'secondary' | 'tertiary' | 'navy' | 'outline'
 
 const variants: Record<Variant, string> = {
   primary:
-    'bg-gold-500 text-navy-950 hover:bg-gold-400 active:bg-gold-600 shadow-none font-semibold',
+    'bg-gold-500 text-navy-950 hover:bg-gold-400 active:bg-gold-600 font-semibold',
   secondary:
-    'bg-transparent text-white border border-white/40 hover:border-gold-400 hover:text-gold-400',
+    'bg-transparent text-white border border-white/50 hover:border-white hover:bg-white/5',
+  outline:
+    'bg-transparent text-ink-900 border border-border hover:border-navy-900 hover:bg-ground-soft font-medium',
   tertiary:
-    'bg-transparent text-gold-500 hover:text-gold-400 px-0 py-0 h-auto min-h-0 shadow-none',
+    'bg-transparent text-ink-900 hover:text-navy-900 px-0 py-0 h-auto min-h-0 underline-offset-4 hover:underline',
   navy: 'bg-navy-900 text-white hover:bg-navy-800 font-semibold',
 }
 
@@ -33,7 +35,7 @@ type ButtonAsAnchor = Common &
 export type ButtonProps = ButtonAsButton | ButtonAsLink | ButtonAsAnchor
 
 const base =
-  'inline-flex items-center justify-center gap-2 rounded-btn px-6 py-3 text-base transition-colors duration-200 min-h-11 disabled:opacity-50 disabled:pointer-events-none'
+  'inline-flex items-center justify-center gap-2 rounded-btn px-5 py-2.5 text-[0.9375rem] tracking-tight transition-colors duration-200 min-h-11 disabled:opacity-50 disabled:pointer-events-none'
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
   props,
@@ -44,9 +46,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
   const content = (
     <>
       {children}
-      {(showArrow || variant === 'tertiary') && (
-        <ArrowRight className="size-4 shrink-0" aria-hidden />
-      )}
+      {showArrow && <ArrowRight className="size-4 shrink-0" aria-hidden />}
     </>
   )
 

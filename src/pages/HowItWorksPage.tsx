@@ -37,13 +37,13 @@ export default function HowItWorksPage() {
         </div>
       </section>
 
-      <section className="section-pad bg-cream-50">
+      <section className="section-pad bg-ground">
         <div className="container-site">
           <StepTimeline expanded />
         </div>
       </section>
 
-      <section className="section-pad bg-cream-100">
+      <section className="section-pad bg-ground-soft">
         <div className="container-site max-w-3xl">
           <SectionHeading
             eyebrow="Fees"
@@ -60,7 +60,7 @@ export default function HowItWorksPage() {
             {differences.map((d) => (
               <div key={d.title}>
                 <h3 className="font-display text-h3 text-white">{d.title}</h3>
-                <p className="mt-3 text-body text-cream-100/75">{d.body}</p>
+                <p className="mt-3 text-body text-white/75">{d.body}</p>
               </div>
             ))}
           </div>

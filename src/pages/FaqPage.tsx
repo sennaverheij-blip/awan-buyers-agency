@@ -36,7 +36,7 @@ export default function FaqPage() {
         </div>
       </section>
 
-      <section className="section-pad bg-cream-50">
+      <section className="section-pad bg-ground">
         <div className="container-site max-w-3xl space-y-14">
           {faqGroups.map((group) => (
             <div key={group.theme}>

@@ -14,7 +14,7 @@ export default function NotFoundPage() {
       <section className="flex min-h-[70vh] flex-col items-center justify-center bg-navy-950 px-4 pb-20 pt-32 text-center">
         <p className="eyebrow">404</p>
         <h1 className="mt-4 font-display text-h1 text-white">This page is off-market.</h1>
-        <p className="mt-4 max-w-md text-body text-cream-100/70">
+        <p className="mt-4 max-w-md text-body text-white/70">
           The link may be outdated. Head home — or book a discovery call while you are here.
         </p>
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -27,7 +27,7 @@ export default function NotFoundPage() {
           </Button>
           <Link
             to="/"
-            className="inline-flex min-h-11 items-center justify-center text-small text-cream-100 hover:text-gold-400"
+            className="inline-flex min-h-11 items-center justify-center text-small text-white/70 hover:text-gold-400"
           >
             Back home
           </Link>

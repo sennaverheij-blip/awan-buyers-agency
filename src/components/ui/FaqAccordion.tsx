@@ -13,7 +13,7 @@ export function FaqAccordion({ items, className }: Props) {
   const [open, setOpen] = useState<number | null>(0)
 
   return (
-    <div className={cn('divide-y divide-cream-100 border-y border-cream-100', className)}>
+    <div className={cn('divide-y divide-border border-y border-border', className)}>
       {items.map((item, index) => {
         const isOpen = open === index
         const panelId = `faq-panel-${index}`

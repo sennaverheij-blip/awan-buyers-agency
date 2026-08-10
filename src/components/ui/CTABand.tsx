@@ -1,6 +1,7 @@
 import { Button } from './Button'
 import { cn } from '../../lib/utils'
 import { track } from '../../lib/analytics'
+import { useInView } from '../../hooks/useInView'
 
 type Props = {
   title?: string
@@ -17,12 +18,17 @@ export function CTABand({
   onCallback,
   className,
 }: Props) {
+  const [ref, visible] = useInView<HTMLElement>()
+
   return (
-    <section className={cn('section-pad bg-navy-950', className)}>
-      <div className="container-site max-w-3xl text-center">
-        <h2 className="font-display text-h2 text-white">{title}</h2>
-        <p className="mt-4 text-body text-cream-100/75">{subtitle}</p>
-        <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+    <section
+      ref={ref}
+      className={cn('section-pad bg-navy-950 fade-up', visible && 'is-visible', className)}
+    >
+      <div className="container-site max-w-2xl text-center">
+        <h2 className="text-h2 font-bold text-white">{title}</h2>
+        <p className="mt-5 text-body text-white/60">{subtitle}</p>
+        <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <Button
             to="/book"
             variant="primary"
@@ -33,7 +39,7 @@ export function CTABand({
           {onCallback && (
             <button
               type="button"
-              className="min-h-11 text-small text-cream-100/70 underline-offset-4 hover:text-gold-400 hover:underline"
+              className="min-h-11 text-small text-white/50 underline-offset-4 hover:text-white hover:underline"
               onClick={onCallback}
             >
               or request a callback

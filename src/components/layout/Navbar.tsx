@@ -30,25 +30,26 @@ export function Navbar({ minimal = false, overHero = false }: Props) {
   }, [open])
 
   const close = () => setOpen(false)
-
   const solid = !overHero || scrolled || open || minimal
-  const barClass = solid
-    ? 'bg-navy-900 shadow-[var(--shadow-soft)]'
-    : 'bg-transparent'
 
   return (
-    <header className={cn('fixed inset-x-0 top-0 z-50 transition-colors duration-300', barClass)}>
-      <div className="container-site flex h-16 items-center justify-between gap-4 lg:h-[4.5rem]">
+    <header
+      className={cn(
+        'fixed inset-x-0 top-0 z-50 transition-[background-color,box-shadow] duration-300',
+        solid ? 'bg-navy-950/95 shadow-[0_1px_0_rgb(255_255_255/0.06)] backdrop-blur-md' : 'bg-transparent',
+      )}
+    >
+      <div className="container-site flex h-[4.25rem] items-center justify-between gap-4 lg:h-[4.75rem]">
         <Link
           to="/"
           onClick={close}
           className="group flex flex-col leading-none"
           aria-label={`${SITE.name} home`}
         >
-          <span className="font-display text-2xl tracking-wide text-white">
+          <span className="font-brand text-[1.75rem] tracking-[0.04em] text-white lg:text-[1.9rem]">
             {SITE.shortName}
           </span>
-          <span className="text-[0.65rem] font-medium uppercase tracking-[0.18em] text-gold-400">
+          <span className="text-[0.625rem] font-semibold uppercase tracking-[0.2em] text-white/55 group-hover:text-gold-400">
             Buyers Agency
           </span>
         </Link>
@@ -56,7 +57,7 @@ export function Navbar({ minimal = false, overHero = false }: Props) {
         {minimal ? (
           <a
             href={SITE.phone.href}
-            className="inline-flex min-h-11 items-center gap-2 text-small text-cream-100 hover:text-gold-400"
+            className="inline-flex min-h-11 items-center gap-2 text-small text-white/80 hover:text-white"
             onClick={() => track('phone_click', { location: 'nav-minimal' })}
           >
             <Phone className="size-4" aria-hidden />
@@ -64,24 +65,24 @@ export function Navbar({ minimal = false, overHero = false }: Props) {
           </a>
         ) : (
           <>
-            <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary">
+            <nav className="hidden items-center gap-9 lg:flex" aria-label="Primary">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   to={link.href}
                   className={cn(
-                    'text-small font-medium text-cream-100/85 transition-colors hover:text-white',
-                    location.pathname === link.href && 'text-gold-400',
+                    'text-[0.8125rem] font-medium tracking-wide text-white/75 transition-colors hover:text-white',
+                    location.pathname === link.href && 'text-white',
                   )}
                 >
                   {link.label}
                 </Link>
               ))}
             </nav>
-            <div className="hidden items-center gap-4 lg:flex">
+            <div className="hidden items-center gap-5 lg:flex">
               <a
                 href={SITE.phone.href}
-                className="text-small text-cream-100/80 hover:text-gold-400"
+                className="text-[0.8125rem] font-medium text-white/70 hover:text-white"
                 onClick={() => track('phone_click', { location: 'nav' })}
               >
                 {SITE.phone.display}
@@ -111,29 +112,29 @@ export function Navbar({ minimal = false, overHero = false }: Props) {
       {!minimal && open && (
         <div
           id="mobile-nav"
-          className="fixed inset-0 top-16 z-40 flex flex-col bg-navy-900 lg:hidden"
+          className="fixed inset-0 top-[4.25rem] z-40 flex flex-col bg-navy-950 lg:hidden"
         >
           <a
             href={SITE.phone.href}
-            className="flex min-h-14 items-center gap-3 border-b border-navy-800 px-4 text-body text-cream-100"
+            className="flex min-h-14 items-center gap-3 border-b border-white/10 px-5 text-body text-white"
             onClick={() => track('phone_click', { location: 'nav-sheet' })}
           >
             <Phone className="size-5 text-gold-400" aria-hidden />
             {SITE.phone.display}
           </a>
-          <nav className="flex flex-1 flex-col gap-1 overflow-y-auto px-2 py-4" aria-label="Mobile">
+          <nav className="flex flex-1 flex-col gap-1 overflow-y-auto px-3 py-4" aria-label="Mobile">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 to={link.href}
                 onClick={close}
-                className="flex min-h-12 items-center rounded-btn px-4 text-lg text-white hover:bg-navy-800"
+                className="flex min-h-12 items-center rounded-btn px-4 text-lg font-medium text-white hover:bg-white/5"
               >
                 {link.label}
               </Link>
             ))}
           </nav>
-          <div className="border-t border-navy-800 p-4">
+          <div className="border-t border-white/10 p-4">
             <Button
               to="/book"
               variant="primary"
