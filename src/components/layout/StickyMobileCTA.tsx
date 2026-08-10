@@ -15,22 +15,23 @@ export function StickyMobileCTA() {
     if (dismissed || hideOnBook) return
     const onScroll = () => {
       const hero = document.getElementById('hero')
-      const threshold = hero ? hero.offsetHeight * 0.7 : 400
+      // Only after leaving the hero — never compete with hero CTAs
+      const threshold = hero ? hero.offsetHeight - 48 : 520
       setVisible(window.scrollY > threshold)
     }
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
-  }, [dismissed, hideOnBook])
+  }, [dismissed, hideOnBook, location.pathname])
 
   if (dismissed || hideOnBook || !visible) return null
 
   return (
-    <div className="fixed inset-x-0 bottom-0 z-40 border-t border-navy-800 bg-navy-950/95 p-3 backdrop-blur md:hidden">
+    <div className="fixed inset-x-0 bottom-0 z-40 border-t border-white/10 bg-navy-950/95 p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] backdrop-blur md:hidden">
       <div className="flex items-center gap-2">
         <a
           href={SITE.phone.href}
-          className="flex size-11 shrink-0 items-center justify-center rounded-btn border border-navy-700 text-gold-400"
+          className="flex size-11 shrink-0 items-center justify-center rounded-btn border border-white/15 text-gold-400"
           aria-label={`Call ${SITE.phone.display}`}
           onClick={() => track('phone_click', { location: 'sticky' })}
         >

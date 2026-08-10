@@ -9,9 +9,10 @@ import { cn } from '../../lib/utils'
 type Props = {
   minimal?: boolean
   overHero?: boolean
+  onOpenChange?: (open: boolean) => void
 }
 
-export function Navbar({ minimal = false, overHero = false }: Props) {
+export function Navbar({ minimal = false, overHero = false, onOpenChange }: Props) {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
   const location = useLocation()
@@ -24,10 +25,11 @@ export function Navbar({ minimal = false, overHero = false }: Props) {
 
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : ''
+    onOpenChange?.(open)
     return () => {
       document.body.style.overflow = ''
     }
-  }, [open])
+  }, [open, onOpenChange])
 
   const close = () => setOpen(false)
   const solid = !overHero || scrolled || open || minimal
@@ -39,17 +41,17 @@ export function Navbar({ minimal = false, overHero = false }: Props) {
         solid ? 'bg-navy-950/95 shadow-[0_1px_0_rgb(255_255_255/0.06)] backdrop-blur-md' : 'bg-transparent',
       )}
     >
-      <div className="container-site flex h-[4.25rem] items-center justify-between gap-4 lg:h-[4.75rem]">
+      <div className="container-site flex h-16 items-center justify-between gap-4 sm:h-[4.25rem] lg:h-[4.75rem]">
         <Link
           to="/"
           onClick={close}
           className="group flex flex-col leading-none"
           aria-label={`${SITE.name} home`}
         >
-          <span className="font-brand text-[1.75rem] tracking-[0.04em] text-white lg:text-[1.9rem]">
+          <span className="font-brand text-[1.55rem] tracking-[0.04em] text-white sm:text-[1.75rem] lg:text-[1.9rem]">
             {SITE.shortName}
           </span>
-          <span className="text-[0.625rem] font-semibold uppercase tracking-[0.2em] text-white/55 group-hover:text-gold-400">
+          <span className="text-[0.5625rem] font-semibold uppercase tracking-[0.18em] text-white/55 group-hover:text-gold-400 sm:text-[0.625rem] sm:tracking-[0.2em]">
             Buyers Agency
           </span>
         </Link>
@@ -61,7 +63,7 @@ export function Navbar({ minimal = false, overHero = false }: Props) {
             onClick={() => track('phone_click', { location: 'nav-minimal' })}
           >
             <Phone className="size-4" aria-hidden />
-            {SITE.phone.display}
+            <span className="hidden sm:inline">{SITE.phone.display}</span>
           </a>
         ) : (
           <>
@@ -112,11 +114,37 @@ export function Navbar({ minimal = false, overHero = false }: Props) {
       {!minimal && open && (
         <div
           id="mobile-nav"
-          className="fixed inset-0 top-[4.25rem] z-40 flex flex-col bg-navy-950 lg:hidden"
+          className="fixed inset-0 z-[60] flex flex-col bg-navy-950 lg:hidden"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Menu"
         >
+          <div className="container-site flex h-16 items-center justify-between sm:h-[4.25rem]">
+            <Link
+              to="/"
+              onClick={close}
+              className="flex flex-col leading-none"
+              aria-label={`${SITE.name} home`}
+            >
+              <span className="font-brand text-[1.55rem] tracking-[0.04em] text-white">
+                {SITE.shortName}
+              </span>
+              <span className="text-[0.5625rem] font-semibold uppercase tracking-[0.18em] text-white/55">
+                Buyers Agency
+              </span>
+            </Link>
+            <button
+              type="button"
+              className="flex size-11 items-center justify-center rounded-btn text-white"
+              aria-label="Close menu"
+              onClick={close}
+            >
+              <X className="size-6" />
+            </button>
+          </div>
           <a
             href={SITE.phone.href}
-            className="flex min-h-14 items-center gap-3 border-b border-white/10 px-5 text-body text-white"
+            className="flex min-h-14 items-center gap-3 border-y border-white/10 px-5 text-body text-white"
             onClick={() => track('phone_click', { location: 'nav-sheet' })}
           >
             <Phone className="size-5 text-gold-400" aria-hidden />
@@ -134,7 +162,7 @@ export function Navbar({ minimal = false, overHero = false }: Props) {
               </Link>
             ))}
           </nav>
-          <div className="border-t border-white/10 p-4">
+          <div className="border-t border-white/10 p-4 pb-[max(1rem,env(safe-area-inset-bottom))]">
             <Button
               to="/book"
               variant="primary"
