@@ -32,7 +32,7 @@ export default function GuidePage() {
             />
             <ul className="mt-8 space-y-3">
               {takeaways.map((t) => (
-                <li key={t} className="flex gap-3 text-body text-cream-100/80">
+                <li key={t} className="flex gap-3 text-body text-white/80">
                   <span className="text-gold-400" aria-hidden>
                     ✓
                   </span>
@@ -40,14 +40,14 @@ export default function GuidePage() {
                 </li>
               ))}
             </ul>
-            <p className="mt-6 text-small text-cream-100/50">Asset: {PLACEHOLDER_ASSET_PLAYBOOK}</p>
+            <p className="mt-6 text-small text-white/50">Asset: {PLACEHOLDER_ASSET_PLAYBOOK}</p>
           </div>
 
           <div className="rounded-card border border-navy-800 bg-navy-900 p-8">
             {sent ? (
               <div>
                 <h2 className="font-display text-h3 text-white">It is on its way.</h2>
-                <p className="mt-3 text-body text-cream-100/75">
+                <p className="mt-3 text-body text-white/75">
                   While it lands in your inbox — want to skip ahead?
                 </p>
                 <Button
@@ -62,7 +62,7 @@ export default function GuidePage() {
             ) : (
               <>
                 <h2 className="font-display text-h3 text-white">Send me the guide</h2>
-                <p className="mt-2 text-small text-cream-100/70">
+                <p className="mt-2 text-small text-white/70">
                   Enter your email. No spam — just the Playbook.
                 </p>
                 <LeadMagnetForm variant="page" />
@@ -73,12 +73,12 @@ export default function GuidePage() {
       </section>
 
       {/* Cover mockup */}
-      <section className="bg-cream-50 py-16" aria-hidden>
+      <section className="bg-ground py-16" aria-hidden>
         <div className="container-site flex justify-center">
           <div className="aspect-[3/4] w-full max-w-xs rounded-media bg-navy-900 p-8 shadow-[var(--shadow-soft)]">
             <p className="eyebrow">Awan Buyers Agency</p>
             <p className="mt-8 font-display text-h2 text-white">Property Buyer&apos;s Playbook</p>
-            <p className="mt-4 text-small text-cream-100/60">Sydney edition</p>
+            <p className="mt-4 text-small text-white/60">Sydney edition</p>
           </div>
         </div>
       </section>

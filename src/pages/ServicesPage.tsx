@@ -24,7 +24,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="section-pad bg-cream-50">
+      <section className="section-pad bg-ground">
         <div className="container-site space-y-16">
           {serviceTiers.map((tier) => (
             <article key={tier.id} id={tier.id} className="scroll-mt-28">
@@ -61,7 +61,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="section-pad bg-cream-100">
+      <section className="section-pad bg-ground-soft">
         <div className="container-site">
           <h2 className="font-display text-h2 text-ink-900">Compare tiers</h2>
           <p className="mt-3 max-w-prose text-body text-ink-600">
@@ -70,7 +70,7 @@ export default function ServicesPage() {
           <div className="mt-8 overflow-x-auto">
             <table className="w-full min-w-[640px] border-collapse text-left text-small">
               <thead>
-                <tr className="border-b border-cream-50 bg-navy-900 text-white">
+                <tr className="border-b border-border bg-navy-900 text-white">
                   <th className="px-4 py-3 font-medium">Inclusion</th>
                   {serviceTiers.map((t) => (
                     <th key={t.id} className="px-4 py-3 font-medium">
@@ -81,7 +81,7 @@ export default function ServicesPage() {
               </thead>
               <tbody>
                 {comparisonRows.map((row) => (
-                  <tr key={row} className="border-b border-cream-50 bg-white">
+                  <tr key={row} className="border-b border-border bg-white">
                     <th scope="row" className="px-4 py-3 font-medium text-ink-900">
                       {row}
                     </th>

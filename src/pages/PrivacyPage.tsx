@@ -8,7 +8,7 @@ export default function PrivacyPage() {
   return (
     <>
       <Seo path="/privacy" />
-      <article className="section-pad bg-cream-50 pt-28">
+      <article className="section-pad bg-ground pt-28">
         <div className="container-site max-w-prose">
           <h1 className="font-display text-h1 text-ink-900">Privacy Policy</h1>
           <p className="mt-4 text-small text-ink-600">Last updated: {SITE.year}</p>

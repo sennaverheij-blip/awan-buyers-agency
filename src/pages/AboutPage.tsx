@@ -40,7 +40,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="section-pad bg-cream-50">
+      <section className="section-pad bg-ground">
         <div className="container-site grid gap-12 lg:grid-cols-3">
           <div className="lg:col-span-2 space-y-4 text-body text-ink-600">
             <p>
@@ -59,8 +59,8 @@ export default function AboutPage() {
               you do not have to.
             </p>
           </div>
-          <aside className="rounded-card border border-cream-100 bg-white p-6 shadow-[var(--shadow-soft)]">
-            <h2 className="font-display text-h3 text-ink-900">Credentials</h2>
+          <aside className="border-t border-border pt-6 lg:border-t-0 lg:border-l lg:pl-8 lg:pt-0">
+            <h2 className="text-h3 font-bold text-ink-900">Credentials</h2>
             <ul className="mt-4 space-y-3 text-small text-ink-600">
               <li>
                 <span className="font-medium text-ink-900">Licence:</span> {PLACEHOLDER_LICENCE}
@@ -74,7 +74,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="section-pad bg-cream-100">
+      <section className="section-pad bg-ground-soft">
         <div className="container-site">
           <SectionHeading eyebrow="Clients" title="What buyers say" />
           <div className="mt-10 grid gap-6 lg:grid-cols-3">

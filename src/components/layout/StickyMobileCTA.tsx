@@ -46,7 +46,7 @@ export function StickyMobileCTA() {
         </Button>
         <button
           type="button"
-          className="flex size-11 shrink-0 items-center justify-center rounded-btn text-cream-100/70"
+          className="flex size-11 shrink-0 items-center justify-center rounded-btn text-white/70"
           aria-label="Dismiss"
           onClick={() => setDismissed(true)}
         >

@@ -42,9 +42,9 @@ export function LeadMagnetForm({ variant = 'strip' }: Props) {
 
   if (status === 'success' && variant === 'strip') {
     return (
-      <p className="text-body text-cream-100">
+      <p className="text-body text-white/80">
         Check your inbox — and{' '}
-        <a href="/book" className="text-gold-400 underline-offset-2 hover:underline">
+        <a href="/book" className="font-semibold text-gold-400 underline-offset-4 hover:underline">
           book a discovery call
         </a>{' '}
         if you want to skip ahead.
@@ -72,7 +72,7 @@ export function LeadMagnetForm({ variant = 'strip' }: Props) {
           required
           autoComplete="email"
           placeholder="you@email.com"
-          className="min-h-11 w-full rounded-btn border border-navy-700 bg-navy-900 px-4 text-white placeholder:text-cream-100/40"
+          className="min-h-11 w-full rounded-btn border border-white/15 bg-white/5 px-4 text-white placeholder:text-white/35"
         />
       </div>
       <Button type="submit" variant="primary" disabled={status === 'submitting'}>
@@ -89,13 +89,12 @@ export function LeadMagnetForm({ variant = 'strip' }: Props) {
 
 export function LeadMagnetStrip() {
   return (
-    <section className="bg-navy-900 py-12">
-      <div className="container-site flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+    <section className="border-y border-white/10 bg-navy-900 py-14">
+      <div className="container-site flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
         <div className="max-w-xl">
-          <h2 className="font-display text-h3 text-white">Not ready to talk? Take the Playbook.</h2>
-          <p className="mt-2 text-small text-cream-100/70">
+          <h2 className="text-h3 font-bold text-white">Not ready to talk? Take the Playbook.</h2>
+          <p className="mt-2 text-small text-white/55">
             Free Property Buyer&apos;s Playbook — what to decide before you inspect, bid or exchange.
-            PDF: PLACEHOLDER_ASSET.
           </p>
         </div>
         <div className="w-full max-w-md">

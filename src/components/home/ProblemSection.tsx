@@ -16,33 +16,36 @@ const pains = [
   },
   {
     icon: EyeOff,
-    title: 'The best properties sell before they are ever listed',
-    body: 'Off-market and quietly circulated stock rewards relationships and speed — not portal alerts.',
+    title: 'The best properties sell before they are listed',
+    body: 'Off-market stock rewards relationships and speed — not portal alerts.',
   },
 ]
 
 export function ProblemSection() {
   return (
-    <section className="section-pad bg-cream-50">
+    <section className="section-pad bg-ground">
       <div className="container-site">
         <SectionHeading
           eyebrow="Why a buyers agent"
           title="The selling agent works for the seller. Who's working for you?"
         />
-        <div className="mt-12 grid gap-8 md:grid-cols-3">
+        <div className="mt-16 grid gap-12 md:grid-cols-3 md:gap-10">
           {pains.map((p, i) => (
             <FadeIn key={p.title} delay={i * 60}>
-              <div className="h-full">
-                <p.icon className="size-7 text-gold-500" aria-hidden />
-                <h3 className="mt-4 font-display text-h3 text-ink-900">{p.title}</h3>
-                <p className="mt-2 text-body text-ink-600">{p.body}</p>
+              <div>
+                <p.icon className="size-6 text-gold-500" strokeWidth={1.5} aria-hidden />
+                <h3 className="mt-5 text-h3 font-bold text-ink-900">{p.title}</h3>
+                <p className="mt-3 text-body text-ink-600">{p.body}</p>
               </div>
             </FadeIn>
           ))}
         </div>
-        <p className="mt-10 text-small text-ink-600">
+        <p className="mt-14 text-small text-ink-600">
           Curious how the process removes that friction?{' '}
-          <Link to="/how-it-works" className="font-medium text-navy-900 underline-offset-2 hover:underline">
+          <Link
+            to="/how-it-works"
+            className="font-semibold text-ink-900 underline-offset-4 hover:underline"
+          >
             See how it works
           </Link>
           .

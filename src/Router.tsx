@@ -20,7 +20,7 @@ function withSuspense(Component: ComponentType) {
     return (
       <Suspense
         fallback={
-          <div className="flex min-h-[50vh] items-center justify-center bg-cream-50 text-ink-600">
+          <div className="flex min-h-[50vh] items-center justify-center bg-ground text-ink-600">
             Loading…
           </div>
         }

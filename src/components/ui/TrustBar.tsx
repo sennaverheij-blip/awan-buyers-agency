@@ -1,5 +1,4 @@
 import { PLACEHOLDER_LOGOS, PLACEHOLDER_STATS } from '../../content/placeholders'
-import { StatBlock } from './StatBlock'
 import { cn } from '../../lib/utils'
 
 type Props = { className?: string }
@@ -8,15 +7,17 @@ export function TrustBar({ className }: Props) {
   if (PLACEHOLDER_LOGOS.length > 0) {
     return (
       <section
-        className={cn('border-y border-cream-100 bg-cream-50 py-10', className)}
+        className={cn('border-y border-border bg-white py-10', className)}
         aria-label="As featured in"
       >
         <div className="container-site">
-          <p className="eyebrow mb-6 text-center">As featured in / trusted by</p>
+          <p className="mb-6 text-center text-[0.6875rem] font-semibold uppercase tracking-[0.16em] text-ink-400">
+            As featured in
+          </p>
           <ul className="flex flex-wrap items-center justify-center gap-10">
             {PLACEHOLDER_LOGOS.map((logo) => (
               <li key={logo.name}>
-                <img src={logo.src} alt={logo.name} className="h-8 w-auto opacity-70" />
+                <img src={logo.src} alt={logo.name} className="h-7 w-auto opacity-60" />
               </li>
             ))}
           </ul>
@@ -25,24 +26,24 @@ export function TrustBar({ className }: Props) {
     )
   }
 
+  const labels = [
+    'Independent — we never sell',
+    'Flat agreed fee',
+    'On- and off-market access',
+  ]
+
   return (
-    <section className={cn('border-y border-cream-100 bg-cream-50 py-12', className)}>
+    <section className={cn('border-y border-border bg-white py-8', className)}>
       <div className="container-site">
-        <p className="eyebrow mb-8 text-center">Outcomes worth verifying</p>
-        <div className="grid gap-8 sm:grid-cols-3">
-          {PLACEHOLDER_STATS.map((stat) => (
-            <StatBlock
-              key={stat.label}
-              value={stat.value}
-              display={stat.display}
-              suffix={stat.suffix}
-              label={stat.label}
-            />
+        <ul className="flex flex-col items-center justify-center gap-4 text-center sm:flex-row sm:gap-10 md:gap-14">
+          {labels.map((label) => (
+            <li key={label} className="text-small font-medium text-ink-600">
+              {label}
+            </li>
           ))}
-        </div>
-        <p className="mt-6 text-center text-small text-ink-600">
-          Stats marked PLACEHOLDER need your verified figures before launch — see PLACEHOLDERS.md.
-        </p>
+        </ul>
+        {/* Stats stay in PLACEHOLDER_STATS for later — not shown until verified */}
+        <span className="sr-only">{PLACEHOLDER_STATS.map((s) => s.label).join(', ')}</span>
       </div>
     </section>
   )

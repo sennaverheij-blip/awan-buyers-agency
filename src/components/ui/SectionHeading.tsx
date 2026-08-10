@@ -27,10 +27,10 @@ export function SectionHeading({
         className,
       )}
     >
-      {eyebrow && <p className="eyebrow mb-3">{eyebrow}</p>}
+      {eyebrow && <p className="eyebrow mb-4">{eyebrow}</p>}
       <Tag
         className={cn(
-          'text-h2 font-display',
+          'text-h2 font-bold tracking-tight',
           tone === 'dark' ? 'text-white' : 'text-ink-900',
         )}
       >
@@ -39,8 +39,8 @@ export function SectionHeading({
       {lede && (
         <p
           className={cn(
-            'mt-4 text-body',
-            tone === 'dark' ? 'text-cream-100/75' : 'text-ink-600',
+            'mt-5 text-body',
+            tone === 'dark' ? 'text-white/65' : 'text-ink-600',
           )}
         >
           {lede}
