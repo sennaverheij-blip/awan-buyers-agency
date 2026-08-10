@@ -29,8 +29,26 @@ Use these URLs in Ads Manager (keep UTM + `fbclid` intact):
 | `/go` | Landing — dual CTA | `ViewContent` |
 | `/go/book` | Direct triage booking (Calendly) | `Schedule` / `InitiateCheckout` |
 | `/go/quiz` | Qualifying quiz → segment | `CompleteRegistration` → `Lead` or book |
+| `/go/muslim` | Muslim investor landing | `ViewContent` |
+| `/go/muslim/book` | Muslim triage booking | `Schedule` |
+| `/go/muslim/quiz` | Muslim qualifying quiz | `CompleteRegistration` → `Lead` or book |
 
-Quiz scoring: answers sum to a score; ≥8 → book CTA; below → Playbook opt-in. Events include `qualified`, `score`, and first-touch UTMs from `sessionStorage`.
+Quiz scoring: five questions including deposit capital; score ≥10 and capital ≠ “Not yet” → book CTA; otherwise → Playbook opt-in. Lowest budget band is **Under $600k**.
+
+Indexed SEO companions (do index): `/property-investment-australia`, `/muslim-property-investors`.
+
+## Backlinks (inbound) — not inventable in code
+
+High-quality **inbound** backlinks require outreach. Track and pursue:
+
+| Source type | Examples | Owner |
+|-------------|----------|-------|
+| Authority citations (outbound, shipped) | ASIC MoneySmart, ATO, ABS, RBA, NSW Fair Trading | On-site in SEO pages |
+| Partner / finance intros | Sharia finance partners reciprocal links when contracts allow | Sales |
+| Directories | REBAA / industry listings, Google Business Profile | Ops |
+| PR / guest education | Local business press, investor education sites | Marketing |
+
+Do **not** buy spam links. Prefer editorial mentions that cite the investment and Muslim investor guides.
 
 ## Important
 

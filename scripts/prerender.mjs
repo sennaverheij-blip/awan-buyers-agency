@@ -74,10 +74,28 @@ const pages = [
   {
     path: '/guide',
     file: 'guide/index.html',
-    title: "Property Buyer's Playbook | Awan Buyers Agency",
+    title: "Property Buyer's Playbook Australia | Awan Buyers Agency",
     description: "Download the free Property Buyer's Playbook from Awan Buyers Agency.",
     heading: 'Not ready to talk? Take the Playbook.',
-    body: 'Free guide for buyers who want clarity before they book a call.',
+    body: 'Free guide for buyers and investors who want clarity before they book a call.',
+  },
+  {
+    path: '/property-investment-australia',
+    file: 'property-investment-australia/index.html',
+    title: 'Property Investment Australia | Buyers Agent for Investors | Awan',
+    description:
+      'Independent buyers agent for property investment in Australia. Search, due diligence and negotiation for Sydney and interstate investors.',
+    heading: 'Property investment in Australia — with someone on your side of the deal.',
+    body: 'How Awan helps property investors buy with a clear brief, rigorous evaluation and strong negotiation.',
+  },
+  {
+    path: '/muslim-property-investors',
+    file: 'muslim-property-investors/index.html',
+    title: 'Muslim Property Investors Australia | Sharia-Aware Buyers Agent | Awan',
+    description:
+      'Buyers agent for Muslim property investors in Australia with trusted sharia-compliant finance partners.',
+    heading: 'Property investment for Muslim Australians — clear process, sharia-aware support.',
+    body: 'Independent buyers representation for Muslim investors, with trusted sharia-compliant finance partners when needed.',
   },
   {
     path: '/go',
@@ -102,7 +120,31 @@ const pages = [
     title: '60-second buyers quiz | Awan Buyers Agency',
     description: 'Take a 60-second quiz to see if a Sydney buyers agent is right for you.',
     heading: 'See if a buyers agent is right for you right now',
-    body: 'Four questions — then book a triage call or get the Playbook.',
+    body: 'Five questions — then book a triage call or get the Playbook.',
+  },
+  {
+    path: '/go/muslim',
+    file: 'go/muslim/index.html',
+    title: 'Muslim investor landing | Awan Buyers Agency',
+    description: 'Sharia-aware property investment support — book a triage call or take the quiz.',
+    heading: 'Invest in Australian property — with sharia-aware support.',
+    body: 'Meta ads landing for Muslim property investors.',
+  },
+  {
+    path: '/go/muslim/book',
+    file: 'go/muslim/book/index.html',
+    title: 'Book triage call — Muslim investors | Awan Buyers Agency',
+    description: 'Book a free triage call for Muslim property investors in Australia.',
+    heading: 'Book your free triage call',
+    body: 'Direct booking for Muslim investor Meta campaigns.',
+  },
+  {
+    path: '/go/muslim/quiz',
+    file: 'go/muslim/quiz/index.html',
+    title: 'Muslim investor quiz | Awan Buyers Agency',
+    description: '60-second quiz for Muslim property investors.',
+    heading: 'See if now is the right time to invest',
+    body: 'Qualifying quiz for Muslim investor funnel.',
   },
   {
     path: '/privacy',

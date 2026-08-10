@@ -33,6 +33,16 @@ export const homeFaqs: FaqItem[] = [
     answer:
       'We are Sydney-based and work across Greater Sydney. We also secure property for clients in other Australian markets where the brief and opportunity align. Tell us your suburbs on the discovery call and we will confirm fit.',
   },
+  {
+    question: 'Do you help with property investment in Australia?',
+    answer:
+      'Yes. A large share of our work is investment acquisition — clear brief, yield and growth trade-offs, due diligence and negotiation. Start with our property investment overview or book a discovery call.',
+  },
+  {
+    question: 'Can you help Muslim investors who need sharia-compliant finance?',
+    answer:
+      'Yes. We provide independent buyers representation and can introduce you to trusted sharia-compliant finance partners when that path fits your brief. We do not lend money and we never sell property.',
+  },
 ]
 
 export const faqGroups: FaqGroup[] = [
@@ -93,12 +103,22 @@ export const faqGroups: FaqGroup[] = [
       {
         question: 'Do you help first-home buyers and investors?',
         answer:
-          'Both. The process is the same discipline — clear brief, rigorous due diligence, strong negotiation — whether you are buying to live in or to hold as an investment.',
+          'Both. The process is the same discipline — clear brief, rigorous due diligence, strong negotiation — whether you are buying to live in or to hold as an investment. See our property investment Australia guide for investor-focused detail.',
+      },
+      {
+        question: 'Do I need deposit capital ready before we work together?',
+        answer:
+          'You should have deposit capital ready, or a clear ability to raise it, before we enter a competitive campaign. We qualify this on the discovery call and in our short quiz so we do not waste your time — or ours.',
       },
       {
         question: 'Can you help if I have already found a property?',
         answer:
           'Yes. Our Evaluate & Negotiate tier is built for that: we stress-test the asset, the price and the contract risk, then negotiate or bid on your behalf.',
+      },
+      {
+        question: 'Do you work with Muslim property investors?',
+        answer:
+          'Yes. We offer independent buyers representation and introductions to trusted sharia-compliant finance partners. Read the Muslim property investors page or book a triage call.',
       },
     ],
   },

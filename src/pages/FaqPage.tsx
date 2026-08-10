@@ -1,3 +1,4 @@
+import { Link } from 'react-router'
 import { Seo } from '../components/Seo'
 import { SectionHeading } from '../components/ui/SectionHeading'
 import { FaqAccordion } from '../components/ui/FaqAccordion'
@@ -46,6 +47,23 @@ export default function FaqPage() {
               </div>
             </div>
           ))}
+          <p className="text-small text-ink-600">
+            Deep dives:{' '}
+            <Link
+              to="/property-investment-australia"
+              className="font-semibold text-ink-900 underline-offset-4 hover:underline"
+            >
+              Property investment Australia
+            </Link>
+            {' · '}
+            <Link
+              to="/muslim-property-investors"
+              className="font-semibold text-ink-900 underline-offset-4 hover:underline"
+            >
+              Muslim property investors
+            </Link>
+            .
+          </p>
         </div>
       </section>
 
