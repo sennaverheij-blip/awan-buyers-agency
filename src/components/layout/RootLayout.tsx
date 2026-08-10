@@ -1,15 +1,25 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Outlet, useLocation } from 'react-router'
 import { Navbar } from './Navbar'
 import { Footer } from './Footer'
 import { StickyMobileCTA } from './StickyMobileCTA'
 import { CallbackProvider } from './CallbackContext'
+import { captureAttributionFromUrl, initMetaPixel } from '../../lib/analytics'
 
 export function RootLayout() {
   const location = useLocation()
   const isBook = location.pathname === '/book'
   const overHero = location.pathname === '/'
   const [navOpen, setNavOpen] = useState(false)
+
+  useEffect(() => {
+    initMetaPixel()
+    captureAttributionFromUrl()
+  }, [])
+
+  useEffect(() => {
+    captureAttributionFromUrl(location.search)
+  }, [location.search])
 
   return (
     <CallbackProvider>

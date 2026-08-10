@@ -36,9 +36,13 @@ export const PLACEHOLDER_LOGOS: { name: string; src: string }[] = []
 
 export const FORM_ENDPOINT = 'PLACEHOLDER_FORM_ENDPOINT'
 export const GUIDE_FORM_ENDPOINT = 'PLACEHOLDER_GUIDE_FORM_ENDPOINT'
+/** Quiz nurture / lead POST — falls back to GUIDE_FORM_ENDPOINT if unset */
+export const QUIZ_FORM_ENDPOINT = 'PLACEHOLDER_QUIZ_FORM_ENDPOINT'
 export const PLACEHOLDER_ASSET_PLAYBOOK = 'PLACEHOLDER_ASSET'
 
 export const ANALYTICS_ID = 'ANALYTICS_PLACEHOLDER'
+/** Meta (Facebook) Pixel ID — required for ads funnel optimization */
+export const META_PIXEL_ID = 'PLACEHOLDER_META_PIXEL_ID'
 
 export const PLACEHOLDER_SOCIALS = {
   facebook: 'PLACEHOLDER_FACEBOOK_URL',
