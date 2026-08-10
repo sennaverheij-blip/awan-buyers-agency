@@ -28,7 +28,7 @@ export function TrustBar({ className }: Props) {
 
   const labels = [
     'Independent — we never sell',
-    'Flat agreed fee',
+    '5.0★ Google reviews',
     'On- and off-market access',
   ]
 

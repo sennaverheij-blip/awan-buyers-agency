@@ -56,7 +56,7 @@ export function HomeHero() {
           </a>
         </div>
         <p className="mt-5 max-w-md text-[0.75rem] leading-relaxed text-white/70 sm:mt-7 sm:text-small">
-          Licensed &amp; independent · We never sell property · Free 20-minute discovery call
+          Licensed &amp; independent · We never sell property · 5.0★ from 11 Google reviews
         </p>
       </div>
     </section>

@@ -120,6 +120,16 @@ export function Footer({ legalOnly = false }: Props) {
                 </a>
               </li>
               <li>
+                <a
+                  href="https://share.google/v0fbrVSdIurPAS4ho"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white"
+                >
+                  Google reviews (5.0★)
+                </a>
+              </li>
+              <li>
                 <a href={SITE.email.href} className="hover:text-white">
                   {SITE.email.display}
                 </a>

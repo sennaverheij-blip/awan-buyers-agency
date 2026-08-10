@@ -12,9 +12,9 @@ const brand = 'Awan Buyers Agency'
 export const pageMeta: PageMeta[] = [
   {
     path: '/',
-    title: `Buyers Agent ${city} | Property Investment Australia | ${brand}`,
+    title: `Buyers Agent Sydney | 5.0★ Google Reviews | Awan Buyers Agency`,
     description:
-      'Independent buyers agent in Sydney for home buyers and property investors across Australia. Search, evaluate and negotiate — including off-market. Book a free discovery call.',
+      'Independent buyers agent in Sydney for property investors and home buyers across Australia. Rated 5.0 on Google (11 reviews). Search, evaluate, negotiate — including off-market. Book a free discovery call.',
     heading: 'The unfair advantage on your side of the deal.',
     body: 'Awan Buyers Agency is a Sydney buyers agent representing property buyers and investors — searching, evaluating and negotiating so you buy the right property at the right price.',
   },

@@ -1,4 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <rect width="64" height="64" rx="8" fill="#0B1420"/>
-  <text x="32" y="42" text-anchor="middle" font-family="Georgia, serif" font-size="28" font-weight="600" fill="#C2A15C">A</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Awan Buyers Agency">
+  <rect width="64" height="64" rx="12" fill="#0B1420"/>
+  <rect x="22" y="12" width="20" height="2.5" rx="1.25" fill="#C2A15C"/>
+  <text
+    x="32"
+    y="46"
+    text-anchor="middle"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="34"
+    font-weight="600"
+    fill="#C2A15C"
+  >A</text>
 </svg>

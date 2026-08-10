@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { Seo } from '../components/Seo'
 import { BookingEmbed } from '../components/ui/BookingEmbed'
 import { TestimonialCard } from '../components/ui/TestimonialCard'
+import { GoogleReviewsBadge } from '../components/ui/GoogleReviewsBadge'
 import { testimonials } from '../content/testimonials'
 import { track } from '../lib/analytics'
 
@@ -27,12 +28,17 @@ export default function BookPage() {
             </li>
             <li>Leave with a plan</li>
           </ul>
+          <div className="mt-6 flex justify-center">
+            <GoogleReviewsBadge />
+          </div>
         </div>
         <div className="mx-auto mt-10 max-w-4xl">
           <BookingEmbed autoLoad />
         </div>
-        <div className="mx-auto mt-12 max-w-xl">
-          <TestimonialCard {...testimonials[0]!} />
+        <div className="mx-auto mt-12 grid max-w-3xl gap-8 sm:grid-cols-2">
+          {testimonials.slice(0, 2).map((t) => (
+            <TestimonialCard key={t.quote} {...t} />
+          ))}
         </div>
       </section>
     </>
