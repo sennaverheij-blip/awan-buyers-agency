@@ -80,6 +80,31 @@ const pages = [
     body: 'Free guide for buyers who want clarity before they book a call.',
   },
   {
+    path: '/go',
+    file: 'go/index.html',
+    title: 'Buy with an unfair advantage | Awan Buyers Agency',
+    description:
+      'Sydney buyers agency — book a free triage call or take a 60-second quiz.',
+    heading: 'Buy with an unfair advantage — without doing it alone.',
+    body: 'Book a free triage call or take the qualifying quiz.',
+  },
+  {
+    path: '/go/book',
+    file: 'go/book/index.html',
+    title: 'Book a free triage call | Awan Buyers Agency',
+    description: 'Book a free 20-minute triage call with Awan Buyers Agency.',
+    heading: 'Book your free triage call',
+    body: 'Twenty minutes. Zero obligation. Leave with a clear plan.',
+  },
+  {
+    path: '/go/quiz',
+    file: 'go/quiz/index.html',
+    title: '60-second buyers quiz | Awan Buyers Agency',
+    description: 'Take a 60-second quiz to see if a Sydney buyers agent is right for you.',
+    heading: 'See if a buyers agent is right for you right now',
+    body: 'Four questions — then book a triage call or get the Playbook.',
+  },
+  {
     path: '/privacy',
     file: 'privacy/index.html',
     title: 'Privacy Policy | Awan Buyers Agency',

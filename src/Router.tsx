@@ -2,6 +2,7 @@
 import { lazy, Suspense, type ComponentType } from 'react'
 import { createBrowserRouter, Navigate } from 'react-router'
 import { RootLayout } from './components/layout/RootLayout'
+import { FunnelLayout } from './components/funnel/FunnelLayout'
 
 const Home = lazy(() => import('./pages/Home'))
 const ServicesPage = lazy(() => import('./pages/ServicesPage'))
@@ -14,6 +15,9 @@ const GuidePage = lazy(() => import('./pages/GuidePage'))
 const PrivacyPage = lazy(() => import('./pages/PrivacyPage'))
 const TermsPage = lazy(() => import('./pages/TermsPage'))
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'))
+const GoLandingPage = lazy(() => import('./pages/funnel/GoLandingPage'))
+const GoBookPage = lazy(() => import('./pages/funnel/GoBookPage'))
+const GoQuizPage = lazy(() => import('./pages/funnel/GoQuizPage'))
 
 function withSuspense(Component: ComponentType) {
   return function Suspended() {
@@ -31,7 +35,32 @@ function withSuspense(Component: ComponentType) {
   }
 }
 
+function withFunnelSuspense(Component: ComponentType) {
+  return function Suspended() {
+    return (
+      <Suspense
+        fallback={
+          <div className="flex min-h-[50vh] items-center justify-center bg-navy-950 text-white/60">
+            Loading…
+          </div>
+        }
+      >
+        <Component />
+      </Suspense>
+    )
+  }
+}
+
 export const router = createBrowserRouter([
+  {
+    path: '/go',
+    Component: FunnelLayout,
+    children: [
+      { index: true, Component: withFunnelSuspense(GoLandingPage) },
+      { path: 'book', Component: withFunnelSuspense(GoBookPage) },
+      { path: 'quiz', Component: withFunnelSuspense(GoQuizPage) },
+    ],
+  },
   {
     path: '/',
     Component: RootLayout,

@@ -6,8 +6,8 @@ import { SectionHeading } from '../ui/SectionHeading'
 export function AboutTeaser() {
   return (
     <section className="section-pad bg-ground">
-      <div className="container-site grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
-        <div className="overflow-hidden rounded-media">
+      <div className="container-site grid items-center gap-10 lg:grid-cols-2 lg:gap-20">
+        <div className="order-2 overflow-hidden rounded-media lg:order-1">
           <img
             src={sohaibImg}
             alt={`${SITE.founder.name}, founder of ${SITE.name}`}
@@ -17,7 +17,7 @@ export function AboutTeaser() {
             loading="lazy"
           />
         </div>
-        <div>
+        <div className="order-1 lg:order-2">
           <SectionHeading
             eyebrow="About"
             title={`Meet ${SITE.founder.name}.`}

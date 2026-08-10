@@ -39,7 +39,7 @@ export function TrustBar({ className }: Props) {
           {labels.map((label) => (
             <li
               key={label}
-              className="border-b border-border px-4 py-3 text-small font-medium text-ink-600 last:border-b-0 sm:border-b-0 sm:border-r sm:px-6 sm:py-0 sm:last:border-r-0 md:px-8"
+              className="border-b border-border px-2 py-3.5 text-[0.8125rem] font-medium leading-snug text-ink-600 last:border-b-0 sm:border-b-0 sm:border-r sm:px-6 sm:py-0 sm:text-small sm:last:border-r-0 md:px-8"
             >
               {label}
             </li>

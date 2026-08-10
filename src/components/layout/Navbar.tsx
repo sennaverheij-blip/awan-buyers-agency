@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { createPortal } from 'react-dom'
 import { Link, useLocation } from 'react-router'
 import { Menu, Phone, X } from 'lucide-react'
 import { navLinks, SITE } from '../../content/site'
@@ -15,7 +16,12 @@ type Props = {
 export function Navbar({ minimal = false, overHero = false, onOpenChange }: Props) {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  const [mounted, setMounted] = useState(false)
   const location = useLocation()
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24)
@@ -31,13 +37,113 @@ export function Navbar({ minimal = false, overHero = false, onOpenChange }: Prop
     }
   }, [open, onOpenChange])
 
+  useEffect(() => {
+    if (!open) return
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpen(false)
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [open])
+
+  // Close menu on route change
+  useEffect(() => {
+    setOpen(false)
+  }, [location.pathname])
+
   const close = () => setOpen(false)
   const solid = !overHero || scrolled || open || minimal
+
+  const mobileMenu =
+    !minimal &&
+    open &&
+    mounted &&
+    createPortal(
+      <div
+        id="mobile-nav"
+        className="fixed inset-0 z-[200] flex flex-col bg-navy-950 text-white lg:hidden"
+        style={{ paddingTop: 'env(safe-area-inset-top)' }}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Menu"
+      >
+        <div className="flex h-16 shrink-0 items-center justify-between px-5 sm:h-[4.25rem]">
+          <Link
+            to="/"
+            onClick={close}
+            className="flex flex-col leading-none text-white"
+            aria-label={`${SITE.name} home`}
+          >
+            <span className="font-brand text-[1.55rem] tracking-[0.04em] text-white">
+              {SITE.shortName}
+            </span>
+            <span className="text-[0.5625rem] font-semibold uppercase tracking-[0.18em] text-white/60">
+              Buyers Agency
+            </span>
+          </Link>
+          <button
+            type="button"
+            className="flex size-11 items-center justify-center rounded-btn text-white"
+            aria-label="Close menu"
+            onClick={close}
+          >
+            <X className="size-6" />
+          </button>
+        </div>
+
+        {/* Single scroll column — avoids flex-1 collapse that hid links on mobile Safari */}
+        <div
+          className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-5 pb-6"
+          style={{ WebkitOverflowScrolling: 'touch' }}
+        >
+          <a
+            href={SITE.phone.href}
+            className="flex min-h-14 items-center gap-3 border-y border-white/15 text-[1.0625rem] font-medium text-white"
+            onClick={() => track('phone_click', { location: 'nav-sheet' })}
+          >
+            <Phone className="size-5 shrink-0 text-gold-400" aria-hidden />
+            <span className="text-white">{SITE.phone.display}</span>
+          </a>
+
+          <nav className="mt-4 flex flex-col" aria-label="Mobile">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                to={link.href}
+                onClick={close}
+                className="flex min-h-14 items-center border-b border-white/10 text-xl font-semibold text-white"
+                style={{ color: '#ffffff' }}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+
+          <div className="mt-8 pb-[max(1.25rem,env(safe-area-inset-bottom))]">
+            <Button
+              to="/book"
+              variant="primary"
+              className="w-full text-base"
+              onClick={() => {
+                close()
+                track('cta_book_click', { location: 'nav-sheet' })
+              }}
+            >
+              Book a Free Call
+            </Button>
+            <p className="mt-4 text-center text-small text-white/55">
+              Free 20-minute discovery · No obligation
+            </p>
+          </div>
+        </div>
+      </div>,
+      document.body,
+    )
 
   return (
     <header
       className={cn(
-        'fixed inset-x-0 top-0 z-50 transition-[background-color,box-shadow] duration-300',
+        'fixed inset-x-0 top-0 z-50 pt-[env(safe-area-inset-top)] transition-[background-color,box-shadow] duration-300',
         solid ? 'bg-navy-950/95 shadow-[0_1px_0_rgb(255_255_255/0.06)] backdrop-blur-md' : 'bg-transparent',
       )}
     >
@@ -73,7 +179,7 @@ export function Navbar({ minimal = false, overHero = false, onOpenChange }: Prop
                   key={link.href}
                   to={link.href}
                   className={cn(
-                    'text-[0.8125rem] font-medium tracking-wide text-white/75 transition-colors hover:text-white',
+                    'text-[0.8125rem] font-medium tracking-wide text-white/85 transition-colors hover:text-white',
                     location.pathname === link.href && 'text-white',
                   )}
                 >
@@ -99,7 +205,7 @@ export function Navbar({ minimal = false, overHero = false, onOpenChange }: Prop
             </div>
             <button
               type="button"
-              className="flex size-11 items-center justify-center rounded-btn text-white lg:hidden"
+              className="relative z-[60] flex size-11 items-center justify-center rounded-btn text-white lg:hidden"
               aria-expanded={open}
               aria-controls="mobile-nav"
               aria-label={open ? 'Close menu' : 'Open menu'}
@@ -110,73 +216,7 @@ export function Navbar({ minimal = false, overHero = false, onOpenChange }: Prop
           </>
         )}
       </div>
-
-      {!minimal && open && (
-        <div
-          id="mobile-nav"
-          className="fixed inset-0 z-[60] flex flex-col bg-navy-950 lg:hidden"
-          role="dialog"
-          aria-modal="true"
-          aria-label="Menu"
-        >
-          <div className="container-site flex h-16 items-center justify-between sm:h-[4.25rem]">
-            <Link
-              to="/"
-              onClick={close}
-              className="flex flex-col leading-none"
-              aria-label={`${SITE.name} home`}
-            >
-              <span className="font-brand text-[1.55rem] tracking-[0.04em] text-white">
-                {SITE.shortName}
-              </span>
-              <span className="text-[0.5625rem] font-semibold uppercase tracking-[0.18em] text-white/55">
-                Buyers Agency
-              </span>
-            </Link>
-            <button
-              type="button"
-              className="flex size-11 items-center justify-center rounded-btn text-white"
-              aria-label="Close menu"
-              onClick={close}
-            >
-              <X className="size-6" />
-            </button>
-          </div>
-          <a
-            href={SITE.phone.href}
-            className="flex min-h-14 items-center gap-3 border-y border-white/10 px-5 text-body text-white"
-            onClick={() => track('phone_click', { location: 'nav-sheet' })}
-          >
-            <Phone className="size-5 text-gold-400" aria-hidden />
-            {SITE.phone.display}
-          </a>
-          <nav className="flex flex-1 flex-col gap-1 overflow-y-auto px-3 py-4" aria-label="Mobile">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                to={link.href}
-                onClick={close}
-                className="flex min-h-12 items-center rounded-btn px-4 text-lg font-medium text-white hover:bg-white/5"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
-          <div className="border-t border-white/10 p-4 pb-[max(1rem,env(safe-area-inset-bottom))]">
-            <Button
-              to="/book"
-              variant="primary"
-              className="w-full"
-              onClick={() => {
-                close()
-                track('cta_book_click', { location: 'nav-sheet' })
-              }}
-            >
-              Book a Free Call
-            </Button>
-          </div>
-        </div>
-      )}
+      {mobileMenu}
     </header>
   )
 }

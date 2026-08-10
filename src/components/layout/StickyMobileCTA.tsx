@@ -27,7 +27,7 @@ export function StickyMobileCTA() {
   if (dismissed || hideOnBook || !visible) return null
 
   return (
-    <div className="fixed inset-x-0 bottom-0 z-40 border-t border-white/10 bg-navy-950/95 p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] backdrop-blur md:hidden">
+    <div className="fixed inset-x-0 bottom-0 z-40 border-t border-white/10 bg-navy-950 p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] md:hidden">
       <div className="flex items-center gap-2">
         <a
           href={SITE.phone.href}

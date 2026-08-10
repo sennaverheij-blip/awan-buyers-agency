@@ -81,10 +81,10 @@
 
 @media (max-width: 640px) {
   @theme {
-    --text-display: 2.5rem;
-    --text-h1: 2.25rem;
-    --text-h2: 1.75rem;
-    --text-h3: 1.25rem;
+    --text-display: 2.125rem;
+    --text-h1: 1.875rem;
+    --text-h2: 1.625rem;
+    --text-h3: 1.1875rem;
     --text-body: 1rem;
   }
 }
@@ -93,6 +93,7 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -149,7 +150,13 @@
 }
 
 .section-pad {
-  padding-block: 5.5rem;
+  padding-block: 4.25rem;
+}
+
+@media (min-width: 640px) {
+  .section-pad {
+    padding-block: 5.5rem;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -173,8 +180,14 @@
 
 @media (min-width: 1024px) {
   .container-site {
-    padding-inline: 2rem;
+    padding-inline: 2.25rem;
   }
+}
+
+/* Soft edge on white type over photography — belt-and-suspenders with washes */
+.hero-copy {
+  color: #fff;
+  text-shadow: 0 1px 2px rgb(11 20 32 / 0.55), 0 8px 28px rgb(11 20 32 / 0.35);
 }
 
 .fade-up {

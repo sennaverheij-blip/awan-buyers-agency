@@ -6,9 +6,11 @@ import { getPageMeta } from '../content/seo'
 type Props = {
   path: string
   jsonLd?: Record<string, unknown> | Record<string, unknown>[]
+  /** Ads funnel pages — keep out of organic index */
+  noindex?: boolean
 }
 
-export function Seo({ path, jsonLd }: Props) {
+export function Seo({ path, jsonLd, noindex = false }: Props) {
   const meta = getPageMeta(path)
   const canonical = `${SITE.url}${path === '/' ? '' : path}`
   const org = {
@@ -39,6 +41,11 @@ export function Seo({ path, jsonLd }: Props) {
       <html lang="en-AU" />
       <title>{meta.title}</title>
       <meta name="description" content={meta.description} />
+      {noindex ? (
+        <meta name="robots" content="noindex, nofollow" />
+      ) : (
+        <meta name="robots" content="index, follow" />
+      )}
       <link rel="canonical" href={canonical} />
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content={SITE.name} />

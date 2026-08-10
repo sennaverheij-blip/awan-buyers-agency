@@ -75,6 +75,29 @@ export const pageMeta: PageMeta[] = [
     body: 'A free guide for buyers who want clarity before they book a call.',
   },
   {
+    path: '/go',
+    title: `Buy with an unfair advantage | ${brand}`,
+    description:
+      'Sydney buyers agency — book a free triage call or take a 60-second quiz. Licensed, independent, we never sell property.',
+    heading: 'Buy with an unfair advantage — without doing it alone.',
+    body: 'Meta ads landing: book a triage call or take the qualifying quiz.',
+  },
+  {
+    path: '/go/book',
+    title: `Book a free triage call | ${brand}`,
+    description: 'Book a free 20-minute triage call with Awan Buyers Agency. Zero obligation.',
+    heading: 'Book your free triage call',
+    body: 'Direct booking path for Meta ads — Calendly triage call.',
+  },
+  {
+    path: '/go/quiz',
+    title: `60-second buyers quiz | ${brand}`,
+    description:
+      'Take a 60-second quiz to see if a Sydney buyers agent is right for you — then book a call or get the Playbook.',
+    heading: 'See if a buyers agent is right for you right now',
+    body: 'Qualifying quiz funnel with segmented outcomes.',
+  },
+  {
     path: '/privacy',
     title: `Privacy Policy | ${brand}`,
     description: 'Privacy policy for Awan Buyers Agency.',

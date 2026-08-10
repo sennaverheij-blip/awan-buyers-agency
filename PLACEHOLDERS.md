@@ -15,7 +15,22 @@ Everything marked `PLACEHOLDER_*` must be replaced with verified business data. 
 | `BOOKING_URL` | Already set in `src/content/site.ts` | Confirm Calendly link is final |
 | `PLACEHOLDER_FORM_ENDPOINT` | Callback form | Formspree / Netlify Forms / other POST URL |
 | `PLACEHOLDER_GUIDE_FORM_ENDPOINT` | Guide download | Email capture endpoint |
+| `PLACEHOLDER_QUIZ_FORM_ENDPOINT` | `/go/quiz` nurture leads | Falls back to guide endpoint if unset |
 | `PLACEHOLDER_ASSET` | Guide PDF | Actual Playbook file URL or blob path |
+| `PLACEHOLDER_META_PIXEL_ID` | Meta ads funnel (`/go/*`) | Facebook Pixel ID — required for Ads Manager optimization |
+| `ANALYTICS_PLACEHOLDER` | GA4 / Plausible | Optional alongside Meta Pixel |
+
+## Meta ads funnel (`/go`)
+
+Use these URLs in Ads Manager (keep UTM + `fbclid` intact):
+
+| Path | Role | Primary conversion event |
+|------|------|--------------------------|
+| `/go` | Landing — dual CTA | `ViewContent` |
+| `/go/book` | Direct triage booking (Calendly) | `Schedule` / `InitiateCheckout` |
+| `/go/quiz` | Qualifying quiz → segment | `CompleteRegistration` → `Lead` or book |
+
+Quiz scoring: answers sum to a score; ≥8 → book CTA; below → Playbook opt-in. Events include `qualified`, `score`, and first-touch UTMs from `sessionStorage`.
 
 ## Important
 
@@ -25,10 +40,9 @@ Everything marked `PLACEHOLDER_*` must be replaced with verified business data. 
 | `PLACEHOLDER_HERO_PHOTO` | Architectural exterior or founder-with-client (not stock handshake) |
 | `PLACEHOLDER_FACEBOOK_URL` / Instagram / LinkedIn | Or remove social icons |
 | Testimonial names & photos | Quotes migrated anonymised; supply real names/photos if permitted |
-| Case study asking/guide vs purchase | `properties.ts` has purchase + valuation/growth — not asking price or “saved off asking”. Supply if you want before/after price cards |
+| Case study asking/guide vs purchase | `properties.ts` has purchase + valuation/growth — not asking price or “saved off asking” |
 | Off-market badges | Flag which of the 17 were off-market |
-| Drop unverified claims | `$8M+ portfolio`, `500+ properties`, `98% success`, “As Seen In” — removed pending verification |
-| `ANALYTICS_PLACEHOLDER` | GA4 measurement ID or Plausible domain |
+| Drop unverified claims | Removed pending verification |
 
 ## Optional
 

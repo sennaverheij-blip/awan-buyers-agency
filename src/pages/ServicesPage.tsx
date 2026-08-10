@@ -12,7 +12,7 @@ export default function ServicesPage() {
   return (
     <>
       <Seo path="/services" />
-      <section className="section-pad bg-navy-950 pt-28">
+      <section className="section-pad bg-navy-950 pt-32 sm:pt-36">
         <div className="container-site max-w-3xl">
           <SectionHeading
             eyebrow="Services"
@@ -67,7 +67,8 @@ export default function ServicesPage() {
           <p className="mt-3 max-w-prose text-body text-ink-600">
             Self-select before the call — we will confirm fit on discovery.
           </p>
-          <div className="mt-8 overflow-x-auto">
+          <p className="mt-6 text-small text-ink-400 sm:hidden">Swipe sideways to compare →</p>
+          <div className="mt-3 overflow-x-auto overscroll-x-contain [-webkit-overflow-scrolling:touch] sm:mt-8">
             <table className="w-full min-w-[640px] border-collapse text-left text-small">
               <thead>
                 <tr className="border-b border-border bg-navy-900 text-white">

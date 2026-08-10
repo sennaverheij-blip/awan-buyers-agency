@@ -17,7 +17,7 @@ export default function AboutPage() {
   return (
     <>
       <Seo path="/about" />
-      <section className="section-pad bg-navy-950 pt-28">
+      <section className="section-pad bg-navy-950 pt-32 sm:pt-36">
         <div className="container-site grid items-center gap-12 lg:grid-cols-2">
           <div>
             <SectionHeading
