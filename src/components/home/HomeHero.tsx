@@ -55,7 +55,7 @@ export function HomeHero() {
             See how it works ↓
           </a>
         </div>
-        <p className="mt-5 max-w-md text-[0.75rem] leading-relaxed text-white/55 sm:mt-7 sm:text-small">
+        <p className="mt-5 max-w-md text-[0.75rem] leading-relaxed text-white/70 sm:mt-7 sm:text-small">
           Licensed &amp; independent · We never sell property · Free 20-minute discovery call
         </p>
       </div>

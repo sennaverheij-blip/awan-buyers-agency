@@ -160,7 +160,7 @@ export function Navbar({ minimal = false, overHero = false, onOpenChange }: Prop
                   key={link.href}
                   to={link.href}
                   className={cn(
-                    'text-[0.8125rem] font-medium tracking-wide text-white/75 transition-colors hover:text-white',
+                    'text-[0.8125rem] font-medium tracking-wide text-white/85 transition-colors hover:text-white',
                     location.pathname === link.href && 'text-white',
                   )}
                 >
