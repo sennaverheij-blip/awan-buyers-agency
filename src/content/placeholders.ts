@@ -27,10 +27,13 @@ export const PLACEHOLDER_STATS = [
 ] as const
 
 export const PLACEHOLDER_REVIEWS = {
-  rating: 'PLACEHOLDER_REVIEW_RATING',
-  count: 'PLACEHOLDER_REVIEW_COUNT',
-  url: 'PLACEHOLDER_GOOGLE_REVIEWS_URL',
+  rating: '5.0',
+  count: '11',
+  url: 'https://share.google/v0fbrVSdIurPAS4ho',
 } as const
+
+/** @deprecated use GOOGLE_BUSINESS from testimonials.ts — kept for TrustBar compat */
+export const GOOGLE_REVIEWS = PLACEHOLDER_REVIEWS
 
 export const PLACEHOLDER_LOGOS: { name: string; src: string }[] = []
 

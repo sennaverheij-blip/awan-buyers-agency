@@ -1,6 +1,7 @@
 import { Seo } from '../components/Seo'
 import { SectionHeading } from '../components/ui/SectionHeading'
 import { TestimonialCard } from '../components/ui/TestimonialCard'
+import { GoogleReviewsBadge } from '../components/ui/GoogleReviewsBadge'
 import { CTABand } from '../components/ui/CTABand'
 import { testimonials } from '../content/testimonials'
 import { SITE } from '../content/site'
@@ -76,9 +77,12 @@ export default function AboutPage() {
 
       <section className="section-pad bg-ground-soft">
         <div className="container-site">
-          <SectionHeading eyebrow="Clients" title="What buyers say" />
+          <SectionHeading eyebrow="Google reviews" title="What buyers say on Google" />
+          <div className="mt-6">
+            <GoogleReviewsBadge />
+          </div>
           <div className="mt-10 grid gap-6 lg:grid-cols-3">
-            {testimonials.map((t) => (
+            {testimonials.slice(0, 6).map((t) => (
               <TestimonialCard key={t.quote} {...t} />
             ))}
           </div>

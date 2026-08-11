@@ -9,7 +9,7 @@ Everything marked `PLACEHOLDER_*` must be replaced with verified business data. 
 | `PLACEHOLDER_LICENCE` | Footer, About, JSON-LD | Public buyers agent / real estate licence number |
 | `PLACEHOLDER_ABN` | Footer bottom bar | Currently fake `12 345 678 901` was removed — supply real ABN |
 | `PLACEHOLDER_MEMBERSHIP_*` | Footer, About | REBAA, PIPA, or other — remove rows you do not hold |
-| `PLACEHOLDER_REVIEW_RATING` / `PLACEHOLDER_REVIEW_COUNT` | Hero micro-trust | Only if real Google (or other) reviews exist |
+| `GOOGLE_REVIEWS` (live) | Testimonials, JSON-LD, TrustBar | **Filled:** 5.0★ · 11 reviews · https://share.google/v0fbrVSdIurPAS4ho |
 | `PLACEHOLDER_GOOGLE_REVIEWS_URL` | Testimonials / trust | Previous URL looked truncated — supply working link |
 | `PLACEHOLDER_STATS_*` | Trust bar | Purchased volume, homes secured, avg saved — **or** confirm we should derive only from the 17 `properties.ts` records (no “average saved” without data) |
 | `BOOKING_URL` | Already set in `src/content/site.ts` | Confirm Calendly link is final |
