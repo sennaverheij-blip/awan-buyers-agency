@@ -7,11 +7,11 @@ import { useCallbackForm } from '../components/layout/CallbackContext'
 const differences = [
   {
     title: 'Independent',
-    body: 'We represent buyers only. No listings book. No kickbacks from selling agents.',
+    body: 'We represent buyers only. No listings book. No commissions from selling agents.',
   },
   {
     title: 'Flat fee',
-    body: 'Agreed in writing before we start. No percentage of purchase price. Dollar figures are shared on your discovery call — not published here.',
+    body: 'Agreed in writing before we start. No percentage of purchase price. Dollar figures are shared on your Strategy Call — not published here.',
   },
   {
     title: 'Off-market access',

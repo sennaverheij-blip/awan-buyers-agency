@@ -3,6 +3,7 @@ import { Link, Outlet, useLocation } from 'react-router'
 import { Phone } from 'lucide-react'
 import { SITE } from '../../content/site'
 import { captureAttributionFromUrl, initMetaPixel, track, trackPageView } from '../../lib/analytics'
+import { BrandMark } from '../ui/BrandMark'
 
 /** Stripped chrome for Meta ads funnel — no main nav, no sticky site CTA. */
 export function FunnelLayout() {
@@ -22,13 +23,12 @@ export function FunnelLayout() {
     <div className="flex min-h-screen flex-col bg-navy-950 text-white">
       <header className="border-b border-white/10 pt-[env(safe-area-inset-top)]">
         <div className="mx-auto flex h-14 max-w-3xl items-center justify-between px-5 sm:h-16 sm:px-6">
-          <Link to="/go" className="flex flex-col leading-none" aria-label={`${SITE.name} funnel home`}>
-            <span className="font-brand text-[1.4rem] tracking-[0.04em] text-white sm:text-[1.55rem]">
-              {SITE.shortName}
-            </span>
-            <span className="text-[0.5rem] font-semibold uppercase tracking-[0.18em] text-white/50">
-              Buyers Agency
-            </span>
+          <Link to="/go" aria-label={`${SITE.name} funnel home`}>
+            <BrandMark
+              size="sm"
+              className="[&_span.font-brand]:text-[1.4rem] sm:[&_span.font-brand]:text-[1.55rem]"
+              subtitleClassName="text-[0.5rem] text-white/50"
+            />
           </Link>
           <a
             href={SITE.phone.href}

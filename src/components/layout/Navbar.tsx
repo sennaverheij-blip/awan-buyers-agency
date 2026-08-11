@@ -4,6 +4,7 @@ import { Link, useLocation } from 'react-router'
 import { Menu, Phone, X } from 'lucide-react'
 import { navLinks, SITE } from '../../content/site'
 import { track } from '../../lib/analytics'
+import { BrandMark } from '../ui/BrandMark'
 import { Button } from '../ui/Button'
 import { cn } from '../../lib/utils'
 
@@ -68,18 +69,8 @@ export function Navbar({ minimal = false, overHero = false, onOpenChange }: Prop
         aria-label="Menu"
       >
         <div className="flex h-16 shrink-0 items-center justify-between px-5 sm:h-[4.25rem]">
-          <Link
-            to="/"
-            onClick={close}
-            className="flex flex-col leading-none text-white"
-            aria-label={`${SITE.name} home`}
-          >
-            <span className="font-brand text-[1.55rem] tracking-[0.04em] text-white">
-              {SITE.shortName}
-            </span>
-            <span className="text-[0.5625rem] font-semibold uppercase tracking-[0.18em] text-white/60">
-              Buyers Agency
-            </span>
+          <Link to="/" onClick={close} aria-label={`${SITE.name} home`}>
+            <BrandMark size="sm" subtitleClassName="text-white/60" />
           </Link>
           <button
             type="button"
@@ -132,7 +123,7 @@ export function Navbar({ minimal = false, overHero = false, onOpenChange }: Prop
               Book a Free Call
             </Button>
             <p className="mt-4 text-center text-small text-white/55">
-              Free 20-minute discovery · No obligation
+              Free 20-minute Strategy Call · No obligation
             </p>
           </div>
         </div>
@@ -148,18 +139,8 @@ export function Navbar({ minimal = false, overHero = false, onOpenChange }: Prop
       )}
     >
       <div className="container-site flex h-16 items-center justify-between gap-4 sm:h-[4.25rem] lg:h-[4.75rem]">
-        <Link
-          to="/"
-          onClick={close}
-          className="group flex flex-col leading-none"
-          aria-label={`${SITE.name} home`}
-        >
-          <span className="font-brand text-[1.55rem] tracking-[0.04em] text-white sm:text-[1.75rem] lg:text-[1.9rem]">
-            {SITE.shortName}
-          </span>
-          <span className="text-[0.5625rem] font-semibold uppercase tracking-[0.18em] text-white/55 group-hover:text-gold-400 sm:text-[0.625rem] sm:tracking-[0.2em]">
-            Buyers Agency
-          </span>
+        <Link to="/" onClick={close} className="group" aria-label={`${SITE.name} home`}>
+          <BrandMark subtitleClassName="group-hover:text-gold-400" />
         </Link>
 
         {minimal ? (

@@ -45,7 +45,7 @@ export function LeadMagnetForm({ variant = 'strip' }: Props) {
       <p className="text-body text-white/80">
         Check your inbox — and{' '}
         <a href="/book" className="font-semibold text-gold-400 underline-offset-4 hover:underline">
-          book a discovery call
+          book a Strategy Call
         </a>{' '}
         if you want to skip ahead.
       </p>

@@ -14,7 +14,7 @@ export const pageMeta: PageMeta[] = [
     path: '/',
     title: `Buyers Agent Sydney | 5.0★ Google Reviews | Awan Buyers Agency`,
     description:
-      'Independent buyers agent in Sydney for property investors and home buyers across Australia. Rated 5.0 on Google (11 reviews). Search, evaluate, negotiate — including off-market. Book a free discovery call.',
+      'Independent buyers agent in Sydney for property investors and home buyers across Australia. Rated 5.0 on Google (11 reviews). Search, evaluate, negotiate — including off-market. Book a free Strategy Call.',
     heading: 'The unfair advantage on your side of the deal.',
     body: 'Awan Buyers Agency is a Sydney buyers agent representing property buyers and investors — searching, evaluating and negotiating so you buy the right property at the right price.',
   },
@@ -22,17 +22,17 @@ export const pageMeta: PageMeta[] = [
     path: '/services',
     title: `Buyers Agent Services ${city} | Investment Acquisition | ${brand}`,
     description:
-      'Full search & acquisition, auction bidding, and evaluate & negotiate for Sydney and Australian property investors. Flat fee, independent buyers agency.',
+      'Full search & acquisition, and evaluate & negotiate for Sydney property investors. Flat fee, independent buyers agency.',
     heading: 'Your entire purchase, handled.',
-    body: 'Choose full search and acquisition, auction bidding, or evaluate and negotiate — flat fee, independent representation for buyers and investors.',
+    body: 'Choose full search and acquisition, or evaluate and negotiate — flat fee, independent representation for buyers and investors.',
   },
   {
     path: '/how-it-works',
     title: `How a Buyers Agent Works | Property Investment Process | ${brand}`,
     description:
-      'Four-step buyers agency process for Australian property investment: discovery, strategy, search and shortlist, secure and settle. Flat agreed fee.',
+      'Four-step buyers agency process for Australian property investment: Strategy Call, brief, search and shortlist, secure and settle. Flat agreed fee.',
     heading: 'A clear process. No surprises.',
-    body: 'From a free discovery call to settlement — how Awan Buyers Agency works with Sydney buyers and investors.',
+    body: 'From a free Strategy Call to settlement — how Awan Buyers Agency works with Sydney buyers and investors.',
   },
   {
     path: '/results',
@@ -60,10 +60,10 @@ export const pageMeta: PageMeta[] = [
   },
   {
     path: '/book',
-    title: `Book a Free Discovery Call | Property Buyers Agent ${city}`,
+    title: `Book a Free Strategy Call | Property Buyers Agent ${city}`,
     description:
-      'Book a free 20-minute discovery call with Awan Buyers Agency. For home buyers and property investors across Australia.',
-    heading: 'Book your free discovery call.',
+      'Book a free 20-minute Strategy Call with Awan Buyers Agency. For home buyers and property investors across Australia.',
+    heading: 'Book your free Strategy Call.',
     body: 'Twenty minutes. Zero obligation. A clear plan either way.',
   },
   {
@@ -78,7 +78,7 @@ export const pageMeta: PageMeta[] = [
     path: '/property-investment-australia',
     title: `Property Investment Australia | Buyers Agent for Investors | ${brand}`,
     description:
-      'Independent buyers agent for property investment in Australia. Search, due diligence and negotiation for Sydney and interstate investors — including off-market.',
+      'Independent buyers agent for property investment in Australia. Search, due diligence and negotiation for Sydney property investors — including off-market.',
     heading: 'Property investment in Australia — with someone on your side of the deal.',
     body: 'How Awan helps property investors buy with a clear brief, rigorous evaluation and strong negotiation.',
   },

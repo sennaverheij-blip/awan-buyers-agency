@@ -15,7 +15,7 @@ export function HowItWorksSection() {
           />
           <p className="mt-8 max-w-prose text-small text-ink-600">
             Flat, agreed fee — no percentage games, no commissions from anyone else. Full details on
-            your discovery call.
+            your Strategy Call.
           </p>
           <Button
             to="/book"

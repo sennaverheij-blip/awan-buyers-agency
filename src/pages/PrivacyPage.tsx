@@ -24,7 +24,7 @@ export default function PrivacyPage() {
             </p>
             <h2 className="font-display text-h3 text-ink-900">How we use it</h2>
             <p>
-              To respond to enquiries, deliver requested guides, schedule discovery calls, and
+              To respond to enquiries, deliver requested guides, schedule Strategy Calls, and
               improve our services. Form submissions are processed by the provider configured in
               our form endpoints.
             </p>

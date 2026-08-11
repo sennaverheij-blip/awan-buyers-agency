@@ -28,7 +28,7 @@ export default function GuidePage() {
               eyebrow="Free guide"
               title="Property Buyer's Playbook"
               tone="dark"
-              lede="Practical clarity for buyers who are not ready to talk yet — and a straight path to a discovery call when you are."
+              lede="Practical clarity for buyers who are not ready to talk yet — and a straight path to a Strategy Call when you are."
             />
             <ul className="mt-8 space-y-3">
               {takeaways.map((t) => (
@@ -56,7 +56,7 @@ export default function GuidePage() {
                   className="mt-6"
                   onClick={() => track('cta_book_click', { location: 'guide-post-submit' })}
                 >
-                  Book a Free Discovery Call
+                  Book a Free Strategy Call
                 </Button>
               </div>
             ) : (

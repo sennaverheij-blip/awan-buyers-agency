@@ -1,0 +1,28 @@
+WhatsApp-ready — copy/paste to Sohaib (Senna must action invites; agent cannot grant owner rights)
+
+---
+
+Hi Sohaib — live site is rolled back to the previous website while you review. Nothing new ships without your written OK.
+
+To give you full ownership/admin, I need to invite you on each of these (reply with the email/login you want on each):
+
+1) GitHub — repo admin (or org owner transfer if you prefer)
+   Repo: github.com/sennaverheij-blip/awan-buyers-agency
+
+2) Vercel (hosting) — team owner/admin
+   Confirm production domain: awanbuyersagency.com.au (+ www)
+
+3) DNS / domain registrar — login where awanbuyersagency.com.au is billed
+   (whoever pays the domain invoice)
+
+4) Calendly — owner of the booking link used on the site
+
+5) Forms / leads — whichever inbox or form tool receives enquiries (when connected)
+
+6) Meta Pixel / Ads + Analytics — Business Manager / pixel / GA (when those IDs are live)
+
+Once you’re on as owner, you control deploys, domains, bookings and ads without waiting on me.
+
+Content corrections (Strategy Call rename, remove auction-only tier, FAQ/positioning) are drafted on a review branch only — not live. I’ll only merge after you approve brand, logo, services and messaging.
+
+---

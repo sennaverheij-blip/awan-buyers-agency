@@ -13,7 +13,7 @@ type Props = {
 
 export function CTABand({
   title = 'Your next property is already out there. Let’s go get it.',
-  subtitle = 'Free 20-minute discovery call. No pressure, no obligation — leave with a clear plan either way.',
+  subtitle = 'Free 20-minute Strategy Call. No pressure, no obligation — leave with a clear plan either way.',
   location,
   onCallback,
   className,
@@ -35,7 +35,7 @@ export function CTABand({
             className="w-full sm:w-auto"
             onClick={() => track('cta_book_click', { location })}
           >
-            Book a Free Discovery Call
+            Book a Free Strategy Call
           </Button>
           {onCallback && (
             <button

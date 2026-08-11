@@ -7,9 +7,9 @@ export const investmentSeo = {
   path: '/property-investment-australia',
   title: 'Property Investment Australia | Buyers Agent for Investors | Awan',
   description:
-    'Independent buyers agent for property investment in Australia. Search, due diligence and negotiation for Sydney and interstate investors — including off-market opportunities.',
+    'Independent buyers agent for property investment in Australia. Search, due diligence and negotiation for Sydney property investors — including off-market opportunities.',
   h1: 'Property investment in Australia — with someone on your side of the deal.',
-  lede: 'Awan Buyers Agency represents property investors who want disciplined acquisition — clear brief, rigorous evaluation, and strong negotiation — across Greater Sydney and selected Australian markets.',
+  lede: 'Awan Buyers Agency represents property investors who want disciplined acquisition — clear brief, rigorous evaluation, and strong negotiation — across Greater Sydney.',
   sections: [
     {
       title: 'Why investors use a buyers agent',
@@ -20,8 +20,8 @@ export const investmentSeo = {
       body: 'Investment houses and apartments that fit a written brief: yield, growth, risk, suburb fundamentals and holding costs. We pressure-test assumptions before you offer, including building, strata and comparable evidence where it matters.',
     },
     {
-      title: 'Sydney base, Australia-wide briefs',
-      body: 'We are based in Parramatta and work extensively across Greater Sydney. We also secure property for investors whose brief points to other Australian markets — confirmed on a free discovery call before we engage.',
+      title: 'Sydney-focused acquisition',
+      body: 'We are based in Parramatta and work extensively across Greater Sydney. Coverage for briefs outside Greater Sydney is confirmed on a free Strategy Call — we will say clearly if we are the right fit.',
     },
   ],
 } as const

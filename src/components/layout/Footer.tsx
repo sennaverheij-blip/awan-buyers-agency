@@ -7,6 +7,7 @@ import {
   PLACEHOLDER_MEMBERSHIPS,
 } from '../../content/placeholders'
 import { track } from '../../lib/analytics'
+import { BrandMark } from '../ui/BrandMark'
 
 type Props = {
   legalOnly?: boolean
@@ -36,10 +37,10 @@ export function Footer({ legalOnly = false }: Props) {
       <div className="container-site section-pad !pb-14 !pt-20">
         <div className="grid gap-14 md:grid-cols-2 lg:grid-cols-12 lg:gap-10">
           <div className="lg:col-span-4">
-            <p className="font-brand text-3xl tracking-[0.04em] text-white">{SITE.shortName}</p>
-            <p className="mt-1 text-[0.625rem] font-semibold uppercase tracking-[0.2em] text-white/45">
-              Buyers Agency
-            </p>
+            <BrandMark
+              size="lg"
+              subtitleClassName="mt-1 text-[0.625rem] tracking-[0.2em] text-white/45"
+            />
             <p className="mt-5 max-w-xs text-small leading-relaxed text-white/55">
               Independent buyers representation across {SITE.city} — search, evaluate, negotiate.
             </p>

@@ -6,7 +6,7 @@ export const homeFaqs: FaqItem[] = [
   {
     question: 'What does a buyers agent cost?',
     answer:
-      'We work on a flat, agreed fee — not a percentage of the purchase price. You know the number before we start. Exact figures are shared on your free discovery call so we can match scope to your brief.',
+      'We work on a flat, agreed fee — not a percentage of the purchase price. You know the number before we start. Exact figures are shared on your free Strategy Call so we can match scope to your brief.',
   },
   {
     question: "Isn't that just an extra fee on top of everything else?",
@@ -14,29 +14,29 @@ export const homeFaqs: FaqItem[] = [
       'A buyers agent is paid to protect your downside and improve your outcome — better shortlist, stronger negotiation, fewer expensive mistakes. Most clients find the fee is absorbed by a sharper purchase price and the time they get back. We never take commissions from selling agents.',
   },
   {
-    question: 'Do you get kickbacks from selling agents?',
+    question: 'Who do you represent?',
     answer:
-      'No. We are independent and represent you only. We do not sell property and we do not accept referral fees from the other side of the table. That independence is the point.',
+      'You only. We are an independent buyers agency: we do not sell property and we do not accept commissions or referral fees from selling agents. Our incentives stay aligned with yours.',
   },
   {
     question: 'How long does it take?',
     answer:
-      'It depends on your brief, budget and how competitive the segment is. Some clients secure within weeks; others need a longer search for the right asset. On the discovery call we give you a realistic timeframe for your criteria.',
+      'It depends on your brief, budget and how competitive the segment is. Some clients secure within weeks; others need a longer search for the right asset. On the Strategy Call we give you a realistic timeframe for your criteria.',
   },
   {
     question: "What if you don't find anything?",
     answer:
-      'We do not push you into a poor fit. If the market is not delivering what your brief requires, we say so. Engagement terms — including what happens if we do not secure — are agreed in writing before we begin.',
+      'The Strategy Call is where we qualify fit first — brief, budget, timeline and whether our process is the right move for you. If we are not the right fit, we say so before you engage. Once engaged, we work to your written brief and agree terms upfront; we will not push you into a poor purchase.',
   },
   {
     question: 'Do you cover my area?',
     answer:
-      'We are Sydney-based and work across Greater Sydney. We also secure property for clients in other Australian markets where the brief and opportunity align. Tell us your suburbs on the discovery call and we will confirm fit.',
+      'We are Sydney-based and work across Greater Sydney. Geographic coverage beyond that is confirmed on the Strategy Call against your brief — we will tell you honestly if we are the right agent for the suburbs you have in mind.',
   },
   {
     question: 'Do you help with property investment in Australia?',
     answer:
-      'Yes. A large share of our work is investment acquisition — clear brief, yield and growth trade-offs, due diligence and negotiation. Start with our property investment overview or book a discovery call.',
+      'Yes. A large share of our work is investment acquisition — clear brief, yield and growth trade-offs, due diligence and negotiation. Start with our property investment overview or book a Strategy Call.',
   },
   {
     question: 'Can you help Muslim investors who need sharia-compliant finance?',
@@ -54,7 +54,7 @@ export const faqGroups: FaqGroup[] = [
       {
         question: 'Do you publish your fee schedule online?',
         answer:
-          'No. Fees depend on the service tier (full search, auction bidding, or evaluate & negotiate) and the complexity of your brief. We explain the flat fee clearly on the discovery call — before any commitment.',
+          'No. Fees depend on the service tier (full search, or evaluate & negotiate) and the complexity of your brief. We explain the flat fee clearly on the Strategy Call — before any commitment.',
       },
       {
         question: 'When is the fee payable?',
@@ -69,14 +69,14 @@ export const faqGroups: FaqGroup[] = [
       homeFaqs[3],
       homeFaqs[4],
       {
-        question: 'What happens on the discovery call?',
+        question: 'What happens on the Strategy Call?',
         answer:
           'Twenty minutes. We cover your goals, budget, suburbs, timeline and constraints. You leave with a clear sense of whether a buyers agent is the right move — and what working together would look like. Zero obligation.',
       },
       {
         question: 'Will you bid at auction for me?',
         answer:
-          'Yes. Auction bidding is available as a standalone tier or as part of a full search engagement. We prepare a bidding strategy, attend on the day, and keep emotion out of the paddles.',
+          'When a purchase goes to auction as part of a full search or evaluate & negotiate engagement, yes — we prepare a bidding strategy, attend on the day, and keep emotion out of the paddles. We do not offer auction bidding as a standalone service.',
       },
     ],
   },
@@ -108,7 +108,7 @@ export const faqGroups: FaqGroup[] = [
       {
         question: 'Do I need deposit capital ready before we work together?',
         answer:
-          'You should have deposit capital ready, or a clear ability to raise it, before we enter a competitive campaign. We qualify this on the discovery call and in our short quiz so we do not waste your time — or ours.',
+          'You should have deposit capital ready, or a clear ability to raise it, before we enter a competitive campaign. We qualify this on the Strategy Call and in our short quiz so we do not waste your time — or ours.',
       },
       {
         question: 'Can you help if I have already found a property?',

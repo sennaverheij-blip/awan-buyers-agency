@@ -27,7 +27,7 @@ export function HomeHero() {
 
       <div className="container-site relative z-10 w-full max-w-3xl hero-settle">
         <p className="hero-copy font-brand text-[2.35rem] leading-none tracking-[0.06em] text-white sm:text-5xl lg:text-7xl">
-          {SITE.shortName}
+          A<span className="text-gold-500">W</span>AN
         </p>
         <p className="mt-2.5 text-[0.625rem] font-semibold uppercase tracking-[0.22em] text-gold-400 sm:text-[0.7rem]">
           Buyers Agency · {SITE.city}
@@ -46,7 +46,7 @@ export function HomeHero() {
             className="w-full shadow-[0_8px_24px_rgb(0_0_0/0.35)] sm:w-auto"
             onClick={() => track('cta_book_click', { location: 'hero' })}
           >
-            Book a Free Discovery Call
+            Book a Free Strategy Call
           </Button>
           <a
             href="#how-it-works"

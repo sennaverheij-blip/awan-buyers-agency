@@ -1,7 +1,7 @@
 export const processSteps = [
   {
     number: 1,
-    title: 'Discovery call',
+    title: 'Strategy Call',
     summary: 'Free, 20 minutes, zero obligation.',
     detail:
       'We cover your goals, budget, must-haves and timeline. You leave with a clear plan — whether or not you engage us.',

@@ -77,7 +77,7 @@ export function SeoInternalLinks() {
         </li>
         <li>
           <Link to="/book" className="font-semibold text-ink-900 underline-offset-4 hover:underline">
-            Book a free discovery call
+            Book a free Strategy Call
           </Link>
         </li>
       </ul>

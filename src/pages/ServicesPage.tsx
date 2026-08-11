@@ -18,7 +18,7 @@ export default function ServicesPage() {
             eyebrow="Services"
             title="Your entire purchase, handled."
             tone="dark"
-            lede="Three tiers. Compare inclusions, then book a call already knowing which fit is yours."
+            lede="Two tiers. Compare inclusions, then book a call already knowing which fit is yours."
             as="h1"
           />
         </div>
@@ -65,7 +65,7 @@ export default function ServicesPage() {
         <div className="container-site">
           <h2 className="font-display text-h2 text-ink-900">Compare tiers</h2>
           <p className="mt-3 max-w-prose text-body text-ink-600">
-            Self-select before the call — we will confirm fit on discovery.
+            Self-select before the call — we will confirm fit on the Strategy Call.
           </p>
           <p className="mt-6 text-small text-ink-400 sm:hidden">Swipe sideways to compare →</p>
           <div className="mt-3 overflow-x-auto overscroll-x-contain [-webkit-overflow-scrolling:touch] sm:mt-8">

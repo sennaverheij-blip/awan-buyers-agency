@@ -43,7 +43,7 @@ export function StickyMobileCTA() {
           className="min-h-11 flex-1"
           onClick={() => track('cta_book_click', { location: 'sticky' })}
         >
-          Free discovery call
+          Free Strategy Call
         </Button>
         <button
           type="button"

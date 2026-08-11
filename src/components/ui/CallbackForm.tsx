@@ -120,7 +120,7 @@ export function CallbackForm({ open, onClose }: Props) {
             <p className="mt-2 text-body text-ink-600">
               Expect a call within one business day. Prefer not to wait?{' '}
               <a href="/book" className="text-navy-900 underline underline-offset-2">
-                Book a discovery call
+                Book a Strategy Call
               </a>
               .
             </p>

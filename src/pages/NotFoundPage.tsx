@@ -15,7 +15,7 @@ export default function NotFoundPage() {
         <p className="eyebrow">404</p>
         <h1 className="mt-4 font-display text-h1 text-white">This page is off-market.</h1>
         <p className="mt-4 max-w-md text-body text-white/70">
-          The link may be outdated. Head home — or book a discovery call while you are here.
+          The link may be outdated. Head home — or book a Strategy Call while you are here.
         </p>
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
           <Button
@@ -23,7 +23,7 @@ export default function NotFoundPage() {
             variant="primary"
             onClick={() => track('cta_book_click', { location: '404' })}
           >
-            Book a Free Discovery Call
+            Book a Free Strategy Call
           </Button>
           <Link
             to="/"

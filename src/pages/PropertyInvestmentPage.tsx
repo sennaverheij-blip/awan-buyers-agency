@@ -36,7 +36,7 @@ export default function PropertyInvestmentPage() {
               variant="primary"
               onClick={() => track('cta_book_click', { location: 'seo-investment' })}
             >
-              Book a free discovery call
+              Book a free Strategy Call
             </Button>
             <Button to="/go/quiz" variant="secondary">
               Take the investor quiz
@@ -102,7 +102,7 @@ export default function PropertyInvestmentPage() {
       <CTABand
         location="seo-investment"
         title="Ready to invest with a clearer process?"
-        subtitle="Book a free discovery call. We will map your brief, budget and timeline — then tell you honestly if we are the right fit."
+        subtitle="Book a free Strategy Call. We will map your brief, budget and timeline — then tell you honestly if we are the right fit."
         onCallback={openCallback}
       />
     </>
