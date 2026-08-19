@@ -195,27 +195,41 @@
 
 .preview-editor-ui [contenteditable],
 .preview-editor-ui button,
-.preview-editor-ui input {
+.preview-editor-ui input,
+.preview-editor-ui select {
   pointer-events: auto;
 }
 
-[data-preview-editable="true"] {
-  border: 1px dashed rgb(59 130 246 / 0.45);
+[data-preview-editable='true'] {
+  border: 1px dashed rgb(59 130 246 / 0.55);
   border-radius: 0.25rem;
+  color: inherit;
   cursor: text;
   display: inline;
   transition:
     border-color 150ms ease,
-    background-color 150ms ease;
+    box-shadow 150ms ease;
 }
 
-[data-preview-editable="true"]:hover {
-  background: rgb(59 130 246 / 0.06);
-  border-color: rgb(59 130 246 / 0.75);
+[data-preview-editable='true']:hover {
+  border-color: rgb(59 130 246 / 0.9);
+  box-shadow: 0 0 0 1px rgb(59 130 246 / 0.25);
 }
 
-[data-preview-editable="true"]:focus {
-  background: rgb(59 130 246 / 0.08);
-  border-color: rgb(59 130 246);
+[data-preview-editable='true']:focus {
+  background: transparent;
+  border-color: rgb(250 204 21);
+  box-shadow:
+    0 0 0 2px rgb(250 204 21 / 0.35),
+    inset 0 0 0 9999px rgb(0 0 0 / 0.08);
+  color: inherit;
   outline: none;
+}
+
+.preview-theme .bg-white [data-preview-editable='true']:focus,
+.preview-theme .bg-ground [data-preview-editable='true']:focus,
+.preview-theme .bg-ground-soft [data-preview-editable='true']:focus {
+  box-shadow:
+    0 0 0 2px rgb(59 130 246 / 0.45),
+    inset 0 0 0 9999px rgb(59 130 246 / 0.08);
 }
