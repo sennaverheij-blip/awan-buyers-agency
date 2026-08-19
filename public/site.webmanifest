@@ -1,0 +1,27 @@
+{
+  "name": "Awan Buyers Agency",
+  "short_name": "AWAN",
+  "description": "Independent buyers agent Sydney — property investment across Australia.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0B1420",
+  "theme_color": "#0B1420",
+  "lang": "en-AU",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "type": "image/png",
+      "sizes": "180x180"
+    },
+    {
+      "src": "/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}
