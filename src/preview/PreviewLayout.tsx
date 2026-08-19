@@ -1,8 +1,10 @@
 import { useEffect, useMemo, useRef, useState, type FormEvent, type ReactNode } from 'react'
-import { Outlet, useLocation } from 'react-router'
+import { Outlet, useLocation, useNavigate } from 'react-router'
 import { Helmet } from 'react-helmet-async'
 import { Download, RotateCcw, X } from 'lucide-react'
 import { PreviewEditorProvider, usePreviewEditor } from './PreviewEditorContext'
+import { PreviewPageNav } from './PreviewPageNav'
+import { PREVIEW_PAGES } from './PreviewPages'
 
 type TextMeta = {
   key: string
@@ -12,7 +14,7 @@ type TextMeta = {
 }
 
 const TEXT_CONTAINER_SELECTOR =
-  'h1,h2,h3,h4,h5,h6,p,li,a,button,blockquote,small,label,dt,dd,td,th,figcaption'
+  'h1,h2,h3,h4,h5,h6,p,li,a,button,blockquote,small,label,dt,dd,td,th,figcaption,div,span'
 
 function getElementPath(element: Element) {
   const segments: string[] = []
@@ -39,7 +41,8 @@ function isEligibleTextNode(node: Text) {
   if (!parent.matches(TEXT_CONTAINER_SELECTOR)) return false
   if (parent.closest('[data-preview-editor-ui="true"]')) return false
   if (parent.closest('[data-preview-editable="true"]')) return false
-  if (parent.closest('script,style,noscript,svg')) return false
+  if (parent.closest('[aria-hidden="true"], .sr-only, script, style, noscript, svg')) return false
+  if (parent.closest('input, textarea, select, option')) return false
 
   return true
 }
@@ -49,11 +52,41 @@ function buildKey(parent: HTMLElement, pathname: string, textIndex: number) {
   return `${scope}::${getElementPath(parent)}::text:${textIndex}`
 }
 
+function attachEditableSpan(
+  span: HTMLSpanElement,
+  parent: HTMLElement,
+  key: string,
+  value: string,
+  originalText: string,
+) {
+  span.dataset.previewEditable = 'true'
+  span.dataset.previewKey = key
+  span.dataset.previewOriginal = originalText
+  span.spellcheck = false
+  span.textContent = value
+
+  const inInteractive = Boolean(parent.closest('a,button'))
+  span.contentEditable = inInteractive ? 'false' : 'true'
+
+  span.addEventListener('dblclick', (event) => {
+    if (!inInteractive) return
+    event.preventDefault()
+    event.stopPropagation()
+    span.contentEditable = 'true'
+    span.focus()
+  })
+
+  span.addEventListener('blur', () => {
+    if (inInteractive) span.contentEditable = 'false'
+  })
+}
+
 function EditableContentLayer() {
   const location = useLocation()
   const { edits, getMeta, registerMeta, setEdit } = usePreviewEditor()
   const rootRef = useRef<HTMLDivElement>(null)
   const observerRef = useRef<MutationObserver | null>(null)
+  const bindTimerRef = useRef<number | null>(null)
 
   const bindRoot = useMemo(
     () => () => {
@@ -84,13 +117,7 @@ function EditableContentLayer() {
         const currentValue = edits[key] ?? originalText
 
         const span = document.createElement('span')
-        span.dataset.previewEditable = 'true'
-        span.dataset.previewKey = key
-        span.dataset.previewOriginal = originalText
-        span.contentEditable = 'true'
-        span.spellcheck = false
-        span.textContent = currentValue
-
+        attachEditableSpan(span, parent, key, currentValue, originalText)
         textNode.parentNode?.replaceChild(span, textNode)
 
         if (!getMeta(key)) {
@@ -120,33 +147,27 @@ function EditableContentLayer() {
       setEdit(key, target.innerText)
     }
 
-    const handleClick = (event: Event) => {
-      const target = event.target
-      if (!(target instanceof HTMLElement)) return
-      const editable = target.closest('[data-preview-editable="true"]')
-      if (!editable) return
-
-      const interactiveParent = editable.closest('a,button')
-      if (interactiveParent) {
-        event.preventDefault()
-        event.stopPropagation()
-        ;(editable as HTMLElement).focus()
-      }
-    }
-
     root.addEventListener('input', handleInput)
-    root.addEventListener('click', handleClick, true)
 
     observerRef.current?.disconnect()
-    observerRef.current = new MutationObserver(() => {
-      bindRoot()
+    observerRef.current = new MutationObserver((mutations) => {
+      const fromEditor = mutations.some(
+        (mutation) =>
+          mutation.target instanceof HTMLElement &&
+          (mutation.target.dataset.previewEditable === 'true' ||
+            mutation.target.closest('[data-preview-editable="true"]')),
+      )
+      if (fromEditor) return
+
+      if (bindTimerRef.current) window.clearTimeout(bindTimerRef.current)
+      bindTimerRef.current = window.setTimeout(bindRoot, 80)
     })
     observerRef.current.observe(root, { childList: true, subtree: true })
 
     return () => {
       root.removeEventListener('input', handleInput)
-      root.removeEventListener('click', handleClick, true)
       observerRef.current?.disconnect()
+      if (bindTimerRef.current) window.clearTimeout(bindTimerRef.current)
     }
   }, [bindRoot, setEdit])
 
@@ -207,10 +228,10 @@ function WelcomeBanner() {
     <div data-preview-editor-ui="true" className="sticky top-0 z-[300] border-b border-blue-200 bg-blue-50 text-ink-900">
       <div className="mx-auto flex max-w-6xl items-start gap-4 px-4 py-3 text-sm leading-relaxed sm:px-6">
         <div className="flex-1">
-          Welcome, Sohaib. This is your new website preview. Every piece of text with a blue dotted
-          border can be edited inline. Your changes save automatically. When you are happy with the
-          copy, click <strong>Download Changes</strong> in the bottom corner and send the file to
-          Senna.
+          Welcome, Sohaib. This is your new website preview. Use the page menu below to open every
+          page. Click any blue dotted text to edit it. For links and buttons, double-click the
+          text to edit it — single click still follows the link. Changes save automatically. When
+          you are happy, click <strong>Download Changes</strong> and send the file to Senna.
         </div>
         <button
           type="button"
@@ -226,6 +247,8 @@ function WelcomeBanner() {
 }
 
 function PreviewToolbar() {
+  const location = useLocation()
+  const navigate = useNavigate()
   const { changeCount, exportChanges, resetChanges } = usePreviewEditor()
 
   return (
@@ -239,6 +262,22 @@ function PreviewToolbar() {
       <p className="mt-2 text-sm text-white/80">
         {changeCount === 0 ? 'No saved copy changes yet.' : `${changeCount} saved change${changeCount === 1 ? '' : 's'}.`}
       </p>
+      <label className="mt-4 block">
+        <span className="text-[0.6875rem] font-semibold uppercase tracking-[0.14em] text-white/55">
+          Open page
+        </span>
+        <select
+          className="mt-1.5 min-h-10 w-full rounded-btn border border-white/15 bg-white px-3 text-sm text-ink-900"
+          value={location.pathname.replace(/\/$/, '') || '/preview'}
+          onChange={(event) => navigate(event.target.value)}
+        >
+          {PREVIEW_PAGES.map((page) => (
+            <option key={page.path} value={page.path}>
+              {page.label}
+            </option>
+          ))}
+        </select>
+      </label>
       <div className="mt-4 flex flex-wrap gap-2">
         <button
           type="button"
@@ -274,6 +313,7 @@ function PreviewLayoutInner() {
       </Helmet>
       <PasscodeGate>
         <WelcomeBanner />
+        <PreviewPageNav />
         <EditableContentLayer />
         <PreviewToolbar />
       </PasscodeGate>
